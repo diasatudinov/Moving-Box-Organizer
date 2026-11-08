@@ -28,10 +28,20 @@ struct ItemFormView: View {
                     .lineLimit(3...6)
             }
 
-            if !viewModel.locationPathText.isEmpty {
-                Section("Stored In") {
-                    Text(viewModel.locationPathText)
-                        .foregroundStyle(.secondary)
+            Section("Stored In") {
+                Button(action: viewModel.chooseLocationTapped) {
+                    HStack {
+                        Text(viewModel.locationPathText)
+                            .foregroundStyle(.primary)
+                            .multilineTextAlignment(.leading)
+                        Spacer(minLength: 8)
+                        Text("Move")
+                            .foregroundStyle(.secondary)
+                        Image(systemName: "chevron.forward")
+                            .font(.footnote.weight(.semibold))
+                            .foregroundStyle(.tertiary)
+                            .accessibilityHidden(true)
+                    }
                 }
             }
 
@@ -49,6 +59,11 @@ struct ItemFormView: View {
             ToolbarItem(placement: .confirmationAction) {
                 Button("Done", action: viewModel.save)
                     .disabled(!viewModel.canSave)
+            }
+        }
+        .navigationDestination(isPresented: $viewModel.isPickingLocation) {
+            ScreenHost(makeViewModel: viewModel.makeLocationPicker) { picker in
+                LocationPickerView(viewModel: picker)
             }
         }
         .interactiveDismissDisabled(viewModel.hasUnsavedChanges)

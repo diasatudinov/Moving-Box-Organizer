@@ -1,9 +1,10 @@
 import SwiftUI
 
-/// The same screen for every level: a garage, a rack or a box. QR and moving are added in 5.4–5.5.
+/// The same screen for every level: a garage, a rack or a box. The QR action is added in 5.5.
 struct LocationView: View {
     @Bindable var viewModel: LocationViewModel
     @FocusState private var isQuickAddFocused: Bool
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     var body: some View {
         Group {
@@ -20,55 +21,73 @@ struct LocationView: View {
     }
 
     private func list(_ content: LocationViewModel.Content) -> some View {
-        List {
-            Section {
-                Label {
-                    Text(content.header)
-                } icon: {
-                    Image(systemName: content.kind.symbolName)
+        ScrollViewReader { proxy in
+            List {
+                Section {
+                    Label {
+                        Text(content.header)
+                    } icon: {
+                        Image(systemName: content.kind.symbolName)
+                    }
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                    .listRowBackground(Color.clear)
+                    .listRowInsets(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 0))
                 }
-                .font(.subheadline)
-                .foregroundStyle(.secondary)
-                .listRowBackground(Color.clear)
-                .listRowInsets(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 0))
-            }
 
-            if !content.sublocations.isEmpty {
-                Section("Places Inside") {
-                    ForEach(content.sublocations) { row in
-                        NavigationLink(value: Route.location(row.id)) {
-                            LocationRow(row: row)
-                        }
-                        .swipeActions {
-                            Button("Delete", systemImage: "trash", role: .destructive) {
-                                viewModel.deleteSublocationTapped(id: row.id)
+                if !content.sublocations.isEmpty {
+                    Section("Places Inside") {
+                        ForEach(content.sublocations) { row in
+                            NavigationLink(value: Route.location(row.id)) {
+                                LocationRow(row: row)
+                            }
+                            .swipeActions {
+                                Button("Delete", systemImage: "trash", role: .destructive) {
+                                    viewModel.deleteSublocationTapped(id: row.id)
+                                }
+                                Button("Move", systemImage: "folder") {
+                                    viewModel.moveSublocationTapped(id: row.id)
+                                }
+                                .tint(.accentColor)
                             }
                         }
                     }
                 }
-            }
 
-            Section {
-                ForEach(content.items) { row in
-                    Button {
-                        viewModel.itemTapped(id: row.id)
-                    } label: {
-                        ItemRow(row: row)
-                    }
-                    .buttonStyle(.plain)
-                    .swipeActions {
-                        Button("Delete", systemImage: "trash", role: .destructive) {
-                            viewModel.deleteItem(id: row.id)
+                Section {
+                    ForEach(content.items) { row in
+                        Button {
+                            viewModel.itemTapped(id: row.id)
+                        } label: {
+                            ItemRow(row: row)
+                        }
+                        .buttonStyle(.plain)
+                        .listRowBackground(row.id == viewModel.highlightedItemID ? Color.accentTile : nil)
+                        .id(row.id)
+                        .swipeActions {
+                            Button("Delete", systemImage: "trash", role: .destructive) {
+                                viewModel.deleteItem(id: row.id)
+                            }
+                            Button("Move", systemImage: "folder") {
+                                viewModel.moveItemTapped(id: row.id)
+                            }
+                            .tint(.accentColor)
                         }
                     }
+                    quickAddField
+                } header: {
+                    Text("Items")
+                } footer: {
+                    if content.isEmpty {
+                        Text("Type things one by one and press Return. You can add places inside too.")
+                    }
                 }
-                quickAddField
-            } header: {
-                Text("Items")
-            } footer: {
-                if content.isEmpty {
-                    Text("Type things one by one and press Return. You can add places inside too.")
-                }
+            }
+            .animation(reduceMotion ? nil : .easeOut(duration: 0.6), value: viewModel.highlightedItemID)
+            .task {
+                guard let itemID = viewModel.highlightedItemID else { return }
+                proxy.scrollTo(itemID, anchor: .center)
+                await viewModel.highlightShown()
             }
         }
     }
@@ -99,6 +118,7 @@ struct LocationView: View {
         ToolbarItem(placement: .topBarTrailing) {
             Menu("More", systemImage: "ellipsis") {
                 Button("Edit", systemImage: "pencil", action: viewModel.editTapped)
+                Button("Move", systemImage: "folder", action: viewModel.moveTapped)
                 Button("Delete", systemImage: "trash", role: .destructive, action: viewModel.deleteTapped)
             }
         }

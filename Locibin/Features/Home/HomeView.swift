@@ -1,12 +1,15 @@
 import SwiftUI
 
-/// Main screen. Search and the scanner button are added in steps 5.4 and 5.6.
+/// Main screen: places, or search results while searching. The scanner button is added in step 5.6.
 struct HomeView: View {
     @Bindable var viewModel: HomeViewModel
+    @Bindable var search: SearchViewModel
 
     var body: some View {
         Group {
-            if viewModel.isEmpty {
+            if search.isActive {
+                SearchResultsView(viewModel: search)
+            } else if viewModel.isEmpty {
                 ContentUnavailableView {
                     Label("No Places Yet", systemImage: "shippingbox")
                 } description: {
@@ -31,6 +34,7 @@ struct HomeView: View {
             }
         }
         .navigationTitle("Places")
+        .searchable(text: $search.query, prompt: Text("Search items and places"))
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button("New Place", systemImage: "plus", action: viewModel.addLocationTapped)
