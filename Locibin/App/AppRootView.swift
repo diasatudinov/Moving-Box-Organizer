@@ -14,6 +14,7 @@ struct AppRootView: View {
             }
         }
         .alert($viewModel.alert)
+        .onOpenURL(perform: viewModel.handle(url:))
     }
 }
 
@@ -38,10 +39,12 @@ private struct MainNavigationView: View {
                 }
             }
         }
+        .alert($router.alertOverRoot)
         .sheet(item: $router.sheet) { sheet in
             NavigationStack {
                 sheetContent(sheet)
             }
+            .alert($router.alertOverSheet)
         }
     }
 
@@ -68,6 +71,12 @@ private struct MainNavigationView: View {
             ScreenHost(makeViewModel: { dependencies.makeMoveLocationPicker(locationID: id) }) { viewModel in
                 LocationPickerView(viewModel: viewModel)
             }
+        case .qrCode(let id):
+            ScreenHost(makeViewModel: { dependencies.makeQRCodeViewModel(locationID: id) }) { viewModel in
+                QRCodeView(viewModel: viewModel)
+            }
+        case .codeProblem(let problem):
+            CodeProblemView(problem: problem, onClose: router.dismissSheet)
         }
     }
 }

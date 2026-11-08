@@ -8,26 +8,66 @@ enum Route: Hashable {
     case location(UUID, highlightedItem: UUID? = nil)
 }
 
-/// A modal form. Kept in the router (not in screen ViewModels) so that deep links
-/// can later check whether a form with unsaved changes is open.
+/// Why a scanned code or opened link could not be shown.
+enum CodeProblem: Hashable {
+    /// A valid code of a location that is not in this app (deleted, or data on another iPhone).
+    case locationNotFound
+    /// Our scheme, but the code is damaged or from a newer app version.
+    case damagedCode
+}
+
+/// A modal screen. Kept in the router (not in screen ViewModels) so that deep links
+/// can check whether a form with unsaved changes is open.
 enum Sheet: Identifiable, Hashable {
     case newLocation(parentID: UUID?)
     case editLocation(UUID)
     case editItem(UUID)
     case moveItem(UUID)
     case moveLocation(UUID)
+    case qrCode(UUID)
+    case codeProblem(CodeProblem)
 
     var id: Self { self }
 }
 
-/// Owns navigation state: the stack and the presented sheet.
+/// A form that can hold unsaved edits; it registers itself with the router while open.
+protocol UnsavedChangesGuard: AnyObject {
+    var hasUnsavedChanges: Bool { get }
+    /// Saves and closes the form; leaves it open (with its own error) if saving fails.
+    func save()
+}
+
+/// Owns navigation state: the stack, the presented sheet and app-level alerts.
 @Observable
 final class AppRouter {
     var path: [Route] = []
     var sheet: Sheet?
+    /// App-level alert (for example: a link arrived while a form has unsaved changes).
+    var alert: AlertState?
+
+    /// The open form, if any. Weak: it disappears together with its sheet.
+    @ObservationIgnored weak var activeForm: (any UnsavedChangesGuard)?
+
+    /// Alert shown over the main screens when no sheet is open…
+    var alertOverRoot: AlertState? {
+        get { sheet == nil ? alert : nil }
+        set { alert = newValue }
+    }
+
+    /// …or over the open sheet, because SwiftUI can present an alert only from the topmost screen.
+    var alertOverSheet: AlertState? {
+        get { sheet != nil ? alert : nil }
+        set { alert = newValue }
+    }
 
     func showLocation(id: UUID, highlightingItem itemID: UUID? = nil) {
         path.append(.location(id, highlightedItem: itemID))
+    }
+
+    /// Opens a location as the only screen above the main list — used for scans and links.
+    func showOnlyLocation(id: UUID) {
+        sheet = nil
+        path = [.location(id)]
     }
 
     func popToRoot() {

@@ -3,7 +3,7 @@ import Observation
 
 /// Create or edit a location. Edits a draft; nothing is saved until "Done".
 @Observable
-final class LocationFormViewModel {
+final class LocationFormViewModel: UnsavedChangesGuard {
     enum Mode: Equatable {
         case create(parentID: UUID?)
         case edit(UUID)
@@ -49,6 +49,7 @@ final class LocationFormViewModel {
             let path = inventory.path(to: parent).map(\.name).joined(separator: " › ")
             return String(localized: "Inside: \(path)", comment: "Form footer: where the location is; the argument is a path like 'Garage › Rack 1'")
         }
+        router.activeForm = self
     }
 
     var title: String {

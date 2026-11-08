@@ -27,6 +27,15 @@ final class LaunchViewModel {
         openStore()
     }
 
+    /// Links from the system Camera (QR labels). Ignored while the store can't be opened.
+    func handle(url: URL) {
+        guard case .ready(let dependencies) = state else {
+            Logger.navigation.notice("Ignored a link: the store is not available")
+            return
+        }
+        dependencies.deepLinks.handle(url: url)
+    }
+
     func startOverTapped() {
         alert = AlertState(
             title: String(localized: "Start Over?", comment: "Confirmation alert title before moving the broken store aside"),
