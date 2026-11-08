@@ -184,6 +184,28 @@
         }
       }
     },
+    "Camera access is restricted on this device." : {
+      "comment" : "Scanner: camera blocked by device restrictions",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Доступ к камере ограничен на этом устройстве."
+          }
+        }
+      }
+    },
+    "Camera Unavailable" : {
+      "comment" : "Scanner: no camera on the device",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Камера недоступна"
+          }
+        }
+      }
+    },
     "Can't Open Your Data" : {
       "comment" : "Store error screen title",
       "localizations" : {
@@ -591,6 +613,17 @@
         }
       }
     },
+    "No Access to Camera" : {
+      "comment" : "Scanner: camera permission denied",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нет доступа к камере"
+          }
+        }
+      }
+    },
     "No Places Yet" : {
       "comment" : "Home empty state title",
       "localizations" : {
@@ -631,6 +664,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "OK"
+          }
+        }
+      }
+    },
+    "Open Settings" : {
+      "comment" : "Button that opens the app's page in Settings",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Открыть Настройки"
           }
         }
       }
@@ -697,6 +741,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Перезапустите приложение и попробуйте ещё раз."
+          }
+        }
+      }
+    },
+    "Point the camera at a place's QR code" : {
+      "comment" : "Scanner instruction",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Наведите камеру на QR-код места"
           }
         }
       }
@@ -789,6 +844,28 @@
         }
       }
     },
+    "Scan Again" : {
+      "comment" : "Button: return to scanning after a problem",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сканировать снова"
+          }
+        }
+      }
+    },
+    "Scan QR Code" : {
+      "comment" : "Main screen button that opens the scanner",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сканировать QR-код"
+          }
+        }
+      }
+    },
     "Screens will be added in the implementation stage." : {
       "comment" : "Temporary placeholder description until the home screen exists",
       "localizations" : {
@@ -877,6 +954,17 @@
         }
       }
     },
+    "The camera is needed only to scan QR codes on your storage places. Allow access in Settings." : {
+      "comment" : "Scanner: explanation when camera access is denied",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Камера нужна только для сканирования QR-кодов на ваших местах хранения. Разрешите доступ в Настройках."
+          }
+        }
+      }
+    },
     "This can't be undone." : {
       "comment" : "Delete confirmation message",
       "localizations" : {
@@ -895,6 +983,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Код не изменится, если переименовать место или поменять его содержимое."
+          }
+        }
+      }
+    },
+    "This device has no camera that can be used for scanning." : {
+      "comment" : "Scanner: no camera explanation",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "На этом устройстве нет камеры, которую можно использовать для сканирования."
+          }
+        }
+      }
+    },
+    "This isn't a code from this app" : {
+      "comment" : "Scanner hint for a foreign QR code",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Этот QR-код не из этого приложения"
           }
         }
       }
@@ -961,6 +1071,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Повторить"
+          }
+        }
+      }
+    },
+    "Turn Flashlight Off" : {
+      "comment" : "Scanner torch button",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выключить фонарик"
+          }
+        }
+      }
+    },
+    "Turn Flashlight On" : {
+      "comment" : "Scanner torch button",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Включить фонарик"
           }
         }
       }

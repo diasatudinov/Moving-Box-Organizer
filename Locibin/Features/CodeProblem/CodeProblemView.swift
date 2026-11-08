@@ -2,9 +2,10 @@ import SwiftUI
 
 /// "Place not found" / "Code not recognized" after a scan or a link (design 2.2, screen 8).
 /// Static screen: the texts depend only on the problem, so it has no ViewModel.
-/// "Scan Again" is added together with the scanner in step 5.6.
+/// The scanner passes `onScanAgain`; a link from the system Camera has only "Close".
 struct CodeProblemView: View {
     let problem: CodeProblem
+    var onScanAgain: (() -> Void)?
     let onClose: () -> Void
 
     var body: some View {
@@ -26,10 +27,23 @@ struct CodeProblemView: View {
                 }
             }
             Spacer()
-            Button(action: onClose) {
-                Text("Close").frame(maxWidth: .infinity)
+            VStack(spacing: 10) {
+                if let onScanAgain {
+                    Button(action: onScanAgain) {
+                        Text("Scan Again").frame(maxWidth: .infinity)
+                    }
+                    .primaryButtonStyle()
+                    Button(action: onClose) {
+                        Text("Close").frame(maxWidth: .infinity)
+                    }
+                    .secondaryButtonStyle()
+                } else {
+                    Button(action: onClose) {
+                        Text("Close").frame(maxWidth: .infinity)
+                    }
+                    .primaryButtonStyle()
+                }
             }
-            .primaryButtonStyle()
             .padding(.horizontal, 16)
             .padding(.bottom, 16)
         }
@@ -38,5 +52,5 @@ struct CodeProblemView: View {
 }
 
 #Preview {
-    CodeProblemView(problem: .locationNotFound, onClose: {})
+    CodeProblemView(problem: .locationNotFound, onScanAgain: {}, onClose: {})
 }

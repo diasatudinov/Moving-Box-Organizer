@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// Main screen: places, or search results while searching. The scanner button is added in step 5.6.
+/// Main screen: places, or search results while searching, with the scanner button.
 struct HomeView: View {
     @Bindable var viewModel: HomeViewModel
     @Bindable var search: SearchViewModel
@@ -38,6 +38,19 @@ struct HomeView: View {
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button("New Place", systemImage: "plus", action: viewModel.addLocationTapped)
+            }
+        }
+        .safeAreaInset(edge: .bottom, alignment: .trailing) {
+            if !viewModel.isEmpty && !search.isActive {
+                Button("Scan QR Code", systemImage: "qrcode.viewfinder", action: viewModel.scanTapped)
+                    .labelStyle(.iconOnly)
+                    .font(.title2.weight(.semibold))
+                    .foregroundStyle(Color.onAccent)
+                    .frame(width: 60, height: 60)
+                    .background(Color.accentColor, in: .circle)
+                    .shadow(color: .black.opacity(0.2), radius: 6, y: 2)
+                    .padding(.trailing, 20)
+                    .padding(.bottom, 8)
             }
         }
         .alert($viewModel.alert)

@@ -279,6 +279,7 @@
 				INFOPLIST_FILE = "Config/Locibin-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Locibin;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_NSCameraUsageDescription = "The camera is used only to scan QR codes on your storage places.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -313,6 +314,7 @@
 				INFOPLIST_FILE = "Config/Locibin-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Locibin;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_NSCameraUsageDescription = "The camera is used only to scan QR codes on your storage places.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
