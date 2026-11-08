@@ -29,11 +29,11 @@ final class LaunchViewModel {
 
     func startOverTapped() {
         alert = AlertState(
-            title: "Start Over?",
-            message: "Your current data file will be moved to a separate folder and the app will start empty.",
+            title: String(localized: "Start Over?", comment: "Confirmation alert title before moving the broken store aside"),
+            message: String(localized: "Your current data file will be moved to a separate folder and the app will start empty.", comment: "Confirmation alert message before moving the broken store aside"),
             actions: [
                 .cancel(),
-                AlertState.Action(title: "Start Over", role: .destructive) { [weak self] in
+                AlertState.Action(title: String(localized: "Start Over", comment: "Store error screen button and destructive alert button"), role: .destructive) { [weak self] in
                     self?.startOver()
                 },
             ]
@@ -48,8 +48,8 @@ final class LaunchViewModel {
         } catch {
             Logger.data.error("Could not move store aside: \(error.localizedDescription, privacy: .public)")
             alert = AlertState(
-                title: "Couldn't Start Over",
-                message: "Please restart the app and try again.",
+                title: String(localized: "Couldn't Start Over", comment: "Alert title when moving the broken store aside failed"),
+                message: String(localized: "Please restart the app and try again.", comment: "Alert message when moving the broken store aside failed"),
                 actions: [.ok()]
             )
         }

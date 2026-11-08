@@ -8,7 +8,7 @@ struct AppRootView: View {
         Group {
             switch viewModel.state {
             case .ready(let dependencies):
-                MainNavigationView(router: dependencies.router)
+                MainNavigationView(dependencies: dependencies, router: dependencies.router)
             case .storeUnavailable:
                 StoreErrorView(onRetry: viewModel.retry, onStartOver: viewModel.startOverTapped)
             }
@@ -17,17 +17,47 @@ struct AppRootView: View {
     }
 }
 
-/// The app's single navigation stack. Screens and destinations are added in step 5.3.
+/// The app's single navigation stack: routes and sheets come from `AppRouter`.
 private struct MainNavigationView: View {
+    let dependencies: AppDependencies
     @Bindable var router: AppRouter
 
     var body: some View {
         NavigationStack(path: $router.path) {
-            ContentUnavailableView(
-                "Project is set up",
-                systemImage: "shippingbox",
-                description: Text("Screens will be added in the implementation stage.")
-            )
+            ScreenHost(makeViewModel: dependencies.makeHomeViewModel) { viewModel in
+                HomeView(viewModel: viewModel)
+            }
+            .navigationDestination(for: Route.self) { route in
+                switch route {
+                case .location(let id):
+                    ScreenHost(makeViewModel: { dependencies.makeLocationViewModel(id: id) }) { viewModel in
+                        LocationView(viewModel: viewModel)
+                    }
+                }
+            }
+        }
+        .sheet(item: $router.sheet) { sheet in
+            NavigationStack {
+                sheetContent(sheet)
+            }
+        }
+    }
+
+    @ViewBuilder
+    private func sheetContent(_ sheet: Sheet) -> some View {
+        switch sheet {
+        case .newLocation(let parentID):
+            ScreenHost(makeViewModel: { dependencies.makeLocationFormViewModel(mode: .create(parentID: parentID)) }) { viewModel in
+                LocationFormView(viewModel: viewModel)
+            }
+        case .editLocation(let id):
+            ScreenHost(makeViewModel: { dependencies.makeLocationFormViewModel(mode: .edit(id)) }) { viewModel in
+                LocationFormView(viewModel: viewModel)
+            }
+        case .editItem(let id):
+            ScreenHost(makeViewModel: { dependencies.makeItemFormViewModel(id: id) }) { viewModel in
+                ItemFormView(viewModel: viewModel)
+            }
         }
     }
 }
