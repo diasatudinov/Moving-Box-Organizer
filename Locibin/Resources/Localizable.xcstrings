@@ -1,0 +1,26 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Project is set up" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Проект настроен"
+          }
+        }
+      }
+    },
+    "Screens will be added in the implementation stage." : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Экраны появятся на этапе реализации."
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
