@@ -1,6 +1,42 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "A place can't be moved inside itself." : {
+      "comment" : "Error: moving a location into itself or its own sub-location",
+      "localizations" : {
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Место нельзя переместить внутрь самого себя." } }
+      }
+    },
+    "Couldn't save changes. Try again." : {
+      "comment" : "Error: SwiftData save failed",
+      "localizations" : {
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Не удалось сохранить изменения. Попробуйте ещё раз." } }
+      }
+    },
+    "Enter a name." : {
+      "comment" : "Validation error: name is empty",
+      "localizations" : {
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Введите название." } }
+      }
+    },
+    "Quantity must be at least 1." : {
+      "comment" : "Validation error: quantity below 1",
+      "localizations" : {
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Количество должно быть не меньше 1." } }
+      }
+    },
+    "This item no longer exists." : {
+      "comment" : "Error: item was deleted",
+      "localizations" : {
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Этот предмет больше не существует." } }
+      }
+    },
+    "This place no longer exists." : {
+      "comment" : "Error: location was deleted",
+      "localizations" : {
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Это место больше не существует." } }
+      }
+    },
     "Box" : {
       "comment" : "Location kind: box",
       "localizations" : {

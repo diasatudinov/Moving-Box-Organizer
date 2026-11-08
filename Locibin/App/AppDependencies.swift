@@ -5,10 +5,12 @@ import SwiftData
 final class AppDependencies {
     let modelContainer: ModelContainer
     let router: AppRouter
+    let inventory: InventoryService
 
     init(modelContainer: ModelContainer, router: AppRouter = AppRouter()) {
         self.modelContainer = modelContainer
         self.router = router
+        self.inventory = InventoryService(context: modelContainer.mainContext)
     }
 
     var modelContext: ModelContext {
