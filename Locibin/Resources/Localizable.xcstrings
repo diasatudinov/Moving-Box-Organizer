@@ -1093,17 +1093,6 @@
         }
       }
     },
-    "Project is set up" : {
-      "comment" : "Temporary placeholder title until the home screen exists",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Проект настроен"
-          }
-        }
-      }
-    },
     "QR Code" : {
       "comment" : "Toolbar button: show the location's QR code",
       "localizations" : {
@@ -1144,6 +1133,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Количество должно быть не меньше 1."
+          }
+        }
+      }
+    },
+    "Quantity: %@" : {
+      "comment" : "VoiceOver: item quantity; the argument is a number",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Количество: %@"
           }
         }
       }
@@ -1232,17 +1232,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Сканировать QR-код"
-          }
-        }
-      }
-    },
-    "Screens will be added in the implementation stage." : {
-      "comment" : "Temporary placeholder description until the home screen exists",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Экраны появятся на этапе реализации."
           }
         }
       }

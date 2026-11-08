@@ -3,7 +3,7 @@ import SwiftUI
 @main
 struct LocibinApp: App {
     @State private var launchViewModel = LaunchViewModel(
-        makeContainer: { try ModelContainerFactory.makePersistent() },
+        makeContainer: { try ModelContainerFactory.makeForLaunch(arguments: ProcessInfo.processInfo.arguments) },
         recovery: StoreRecovery(storeURL: ModelContainerFactory.persistentStoreURL)
     )
 

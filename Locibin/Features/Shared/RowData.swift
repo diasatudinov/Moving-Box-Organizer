@@ -14,6 +14,8 @@ struct ItemRowData: Identifiable, Equatable {
     let title: String
     let note: String?
     let quantityText: String?
+    /// What VoiceOver reads instead of "×2": "Quantity: 2".
+    var quantityAccessibilityText: String? = nil
 }
 
 extension LocationRowData {
@@ -29,11 +31,15 @@ extension LocationRowData {
 
 extension ItemRowData {
     init(_ item: Item, locale: Locale = .current) {
+        let number = item.quantity.map { $0.formatted(.number.locale(locale)) }
         self.init(
             id: item.id,
             title: item.name,
             note: item.note,
-            quantityText: item.quantity.map { "×" + $0.formatted(.number.locale(locale)) }
+            quantityText: number.map { "×" + $0 },
+            quantityAccessibilityText: number.map {
+                String(localized: LocalizedStringResource("Quantity: \($0)", locale: locale, comment: "VoiceOver: item quantity; the argument is a number"))
+            }
         )
     }
 }

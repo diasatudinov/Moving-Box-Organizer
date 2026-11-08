@@ -20,13 +20,16 @@ struct ScannerView: View {
             camera
         case .denied(let restricted):
             NavigationStack {
-                ContentUnavailableView {
+                ScrollableFullScreen {
+                    ContentUnavailableView {
                     Label("No Access to Camera", systemImage: "camera")
                 } description: {
                     if restricted {
                         Text("Camera access is restricted on this device.")
+                    .emptyStateDescriptionStyle()
                     } else {
                         Text("The camera is needed only to scan QR codes on your storage places. Allow access in Settings.")
+                    .emptyStateDescriptionStyle()
                     }
                 } actions: {
                     if !restricted {
@@ -34,6 +37,7 @@ struct ScannerView: View {
                             if let url = URL(string: UIApplication.openSettingsURLString) { openURL(url) }
                         }
                         .primaryButtonStyle()
+                    }
                     }
                 }
                 .toolbar { closeToolbarItem }
@@ -43,7 +47,7 @@ struct ScannerView: View {
                 ContentUnavailableView(
                     "Camera Unavailable",
                     systemImage: "camera",
-                    description: Text("This device has no camera that can be used for scanning.")
+                    description: Text("This device has no camera that can be used for scanning.").foregroundStyle(Color.secondaryText)
                 )
                 .toolbar { closeToolbarItem }
             }

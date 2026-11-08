@@ -14,14 +14,14 @@ struct LocationFormView: View {
                     .submitLabel(.done)
                     .onSubmit { if viewModel.canSave { viewModel.save() } }
             } header: {
-                Text("Name")
+                SectionHeader("Name")
             } footer: {
                 if let parentPath = viewModel.parentPathText {
                     Text(parentPath)
                 }
             }
 
-            Section("Type") {
+            Section {
                 LazyVGrid(columns: columns, spacing: 8) {
                     ForEach(LocationKind.allCases, id: \.self) { kind in
                         KindButton(kind: kind, isSelected: kind == viewModel.kind) {
@@ -30,6 +30,8 @@ struct LocationFormView: View {
                     }
                 }
                 .padding(.vertical, 4)
+            } header: {
+                SectionHeader("Type")
             }
         }
         .navigationTitle(viewModel.title)

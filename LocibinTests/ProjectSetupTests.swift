@@ -17,7 +17,7 @@ struct ProjectSetupTests {
     @Test func russianTranslationIsResolvedFromStringCatalog() throws {
         let ruPath = try #require(Bundle.main.path(forResource: "ru", ofType: "lproj"))
         let ruBundle = try #require(Bundle(path: ruPath))
-        let value = ruBundle.localizedString(forKey: "Project is set up", value: nil, table: nil)
-        #expect(value == "Проект настроен")
+        let value = ruBundle.localizedString(forKey: "Places", value: nil, table: nil)
+        #expect(value == "Места")
     }
 }

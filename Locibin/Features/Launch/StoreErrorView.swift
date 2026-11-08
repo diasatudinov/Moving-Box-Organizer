@@ -7,15 +7,18 @@ struct StoreErrorView: View {
     let onStartOver: () -> Void
 
     var body: some View {
-        ContentUnavailableView {
-            Label("Can't Open Your Data", systemImage: "externaldrive.badge.exclamationmark")
-        } description: {
-            Text("Your saved places and items couldn't be loaded. Try again. If it keeps happening, you can start over — the old data file will be kept in a separate folder.")
-        } actions: {
-            Button("Try Again", action: onRetry)
-                .primaryButtonStyle()
-            Button("Start Over", role: .destructive, action: onStartOver)
-                .secondaryButtonStyle()
+        ScrollableFullScreen {
+            ContentUnavailableView {
+                Label("Can't Open Your Data", systemImage: "externaldrive.badge.exclamationmark")
+            } description: {
+                Text("Your saved places and items couldn't be loaded. Try again. If it keeps happening, you can start over — the old data file will be kept in a separate folder.")
+                    .emptyStateDescriptionStyle()
+            } actions: {
+                Button("Try Again", action: onRetry)
+                    .primaryButtonStyle()
+                Button("Start Over", role: .destructive, action: onStartOver)
+                    .secondaryButtonStyle()
+            }
         }
     }
 }
