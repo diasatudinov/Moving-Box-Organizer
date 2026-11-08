@@ -1,160 +1,792 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%lld items" : {
+      "comment" : "Number of stored items, e.g. in a row subtitle",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld item"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld items"
+                }
+              }
+            }
+          }
+        },
+        "ru" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld предмет"
+                }
+              },
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld предмета"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld предметов"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld предмета"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld places" : {
+      "comment" : "Number of storage places, e.g. in a row subtitle",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld place"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld places"
+                }
+              }
+            }
+          }
+        },
+        "ru" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld место"
+                }
+              },
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld места"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld мест"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld места"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "A place can't be moved inside itself." : {
       "comment" : "Error: moving a location into itself or its own sub-location",
       "localizations" : {
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Место нельзя переместить внутрь самого себя." } }
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Место нельзя переместить внутрь самого себя."
+          }
+        }
       }
     },
-    "Couldn't save changes. Try again." : {
-      "comment" : "Error: SwiftData save failed",
+    "Add" : {
+      "comment" : "Toolbar menu: add an item or a place",
       "localizations" : {
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Не удалось сохранить изменения. Попробуйте ещё раз." } }
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Добавить"
+          }
+        }
       }
     },
-    "Enter a name." : {
-      "comment" : "Validation error: name is empty",
+    "Add item" : {
+      "comment" : "Placeholder of the quick-add field",
       "localizations" : {
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Введите название." } }
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Добавить предмет"
+          }
+        }
       }
     },
-    "Quantity must be at least 1." : {
-      "comment" : "Validation error: quantity below 1",
+    "Add Item" : {
+      "comment" : "Menu action: focus the quick-add field",
       "localizations" : {
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Количество должно быть не меньше 1." } }
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Добавить предмет"
+          }
+        }
       }
     },
-    "This item no longer exists." : {
-      "comment" : "Error: item was deleted",
+    "Add Place Inside" : {
+      "comment" : "Menu action: create a nested location",
       "localizations" : {
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Этот предмет больше не существует." } }
-      }
-    },
-    "This place no longer exists." : {
-      "comment" : "Error: location was deleted",
-      "localizations" : {
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Это место больше не существует." } }
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Добавить место внутри"
+          }
+        }
       }
     },
     "Box" : {
       "comment" : "Location kind: box",
       "localizations" : {
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Коробка" } }
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Коробка"
+          }
+        }
       }
     },
     "Cabinet" : {
       "comment" : "Location kind: cabinet or wardrobe",
       "localizations" : {
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Шкаф" } }
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Шкаф"
+          }
+        }
       }
     },
     "Can't Open Your Data" : {
       "comment" : "Store error screen title",
       "localizations" : {
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Не удаётся открыть данные" } }
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удаётся открыть данные"
+          }
+        }
       }
     },
     "Cancel" : {
       "comment" : "Alert button",
       "localizations" : {
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Отмена" } }
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отмена"
+          }
+        }
       }
     },
     "Container" : {
       "comment" : "Location kind: plastic container or bin",
       "localizations" : {
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Контейнер" } }
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Контейнер"
+          }
+        }
+      }
+    },
+    "Couldn't save changes. Try again." : {
+      "comment" : "Error: SwiftData save failed",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось сохранить изменения. Попробуйте ещё раз."
+          }
+        }
       }
     },
     "Couldn't Start Over" : {
       "comment" : "Alert title when moving the broken store aside failed",
       "localizations" : {
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Не удалось начать заново" } }
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось начать заново"
+          }
+        }
+      }
+    },
+    "Create Place" : {
+      "comment" : "Home empty state button",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Создать место"
+          }
+        }
+      }
+    },
+    "Create your first place — for example, “Garage” or “Pantry” — then add shelves, boxes and things inside." : {
+      "comment" : "Home empty state description",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Создайте первое место — например, «Гараж» или «Кладовка», — а затем добавьте внутрь полки, ящики и вещи."
+          }
+        }
+      }
+    },
+    "Decrease" : {
+      "comment" : "Accessibility label: decrease quantity",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Меньше"
+          }
+        }
+      }
+    },
+    "Delete" : {
+      "comment" : "Destructive button",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Удалить"
+          }
+        }
+      }
+    },
+    "Delete Item" : {
+      "comment" : "Item form destructive button",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Удалить предмет"
+          }
+        }
+      }
+    },
+    "Delete “%@”?" : {
+      "comment" : "Delete confirmation title; the argument is a location or item name",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Удалить «%@»?"
+          }
+        }
+      }
+    },
+    "Discard" : {
+      "comment" : "Destructive button: close the form without saving",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не сохранять"
+          }
+        }
+      }
+    },
+    "Discard Changes?" : {
+      "comment" : "Alert title when closing a form with unsaved changes",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отменить изменения?"
+          }
+        }
+      }
+    },
+    "Done" : {
+      "comment" : "Form confirmation button",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Готово"
+          }
+        }
       }
     },
     "Drawer" : {
       "comment" : "Location kind: drawer",
       "localizations" : {
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Ящик" } }
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ящик"
+          }
+        }
+      }
+    },
+    "Edit" : {
+      "comment" : "Menu action",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Изменить"
+          }
+        }
+      }
+    },
+    "Edit Place" : {
+      "comment" : "Location form title when editing",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Изменить место"
+          }
+        }
+      }
+    },
+    "Empty" : {
+      "comment" : "Row subtitle of a location with nothing inside",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пусто"
+          }
+        }
+      }
+    },
+    "Enter a name." : {
+      "comment" : "Validation error: name is empty",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Введите название."
+          }
+        }
+      }
+    },
+    "Increase" : {
+      "comment" : "Accessibility label: increase quantity",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Больше"
+          }
+        }
+      }
+    },
+    "Inside: %@" : {
+      "comment" : "Form footer: where the location is; the argument is a path like 'Garage › Rack 1'",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Внутри: %@"
+          }
+        }
+      }
+    },
+    "It contains %@. Everything inside will be deleted too. This can't be undone." : {
+      "comment" : "Delete confirmation message; the argument is like '2 places · 16 items'",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "В нём %@. Всё содержимое тоже будет удалено. Это действие нельзя отменить."
+          }
+        }
+      }
+    },
+    "Item" : {
+      "comment" : "Item form title",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Предмет"
+          }
+        }
+      }
+    },
+    "Items" : {
+      "comment" : "Section header on a location screen",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Предметы"
+          }
+        }
+      }
+    },
+    "Keep Editing" : {
+      "comment" : "Button: stay in the form",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Продолжить"
+          }
+        }
+      }
+    },
+    "More" : {
+      "comment" : "Toolbar menu with more actions",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ещё"
+          }
+        }
+      }
+    },
+    "Name" : {
+      "comment" : "Form field and section",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Название"
+          }
+        }
+      }
+    },
+    "New Place" : {
+      "comment" : "Location form title and button",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Новое место"
+          }
+        }
+      }
+    },
+    "No Places Yet" : {
+      "comment" : "Home empty state title",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пока нет мест"
+          }
+        }
+      }
+    },
+    "Not specified" : {
+      "comment" : "Quantity value when no quantity is set",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не указано"
+          }
+        }
+      }
+    },
+    "Note" : {
+      "comment" : "Item form section and field",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Заметка"
+          }
+        }
       }
     },
     "OK" : {
       "comment" : "Alert button",
       "localizations" : {
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "OK" } }
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        }
       }
     },
     "Other" : {
       "comment" : "Location kind: anything else",
       "localizations" : {
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Другое" } }
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Другое"
+          }
+        }
+      }
+    },
+    "Places" : {
+      "comment" : "Home screen title",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Места"
+          }
+        }
+      }
+    },
+    "Places Inside" : {
+      "comment" : "Section header on a location screen",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Места внутри"
+          }
+        }
       }
     },
     "Please restart the app and try again." : {
       "comment" : "Alert message when moving the broken store aside failed",
       "localizations" : {
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Перезапустите приложение и попробуйте ещё раз." } }
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перезапустите приложение и попробуйте ещё раз."
+          }
+        }
       }
     },
     "Project is set up" : {
       "comment" : "Temporary placeholder title until the home screen exists",
       "localizations" : {
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Проект настроен" } }
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Проект настроен"
+          }
+        }
+      }
+    },
+    "Quantity" : {
+      "comment" : "Item form section",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Количество"
+          }
+        }
+      }
+    },
+    "Quantity must be at least 1." : {
+      "comment" : "Validation error: quantity below 1",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Количество должно быть не меньше 1."
+          }
+        }
       }
     },
     "Rack" : {
       "comment" : "Location kind: shelving unit / rack",
       "localizations" : {
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Стеллаж" } }
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Стеллаж"
+          }
+        }
       }
     },
     "Room" : {
       "comment" : "Location kind: a room, e.g. garage or pantry",
       "localizations" : {
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Помещение" } }
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Помещение"
+          }
+        }
       }
     },
     "Screens will be added in the implementation stage." : {
       "comment" : "Temporary placeholder description until the home screen exists",
       "localizations" : {
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Экраны появятся на этапе реализации." } }
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Экраны появятся на этапе реализации."
+          }
+        }
       }
     },
     "Shelf" : {
       "comment" : "Location kind: a single shelf",
       "localizations" : {
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Полка" } }
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Полка"
+          }
+        }
+      }
+    },
+    "Something Went Wrong" : {
+      "comment" : "Generic error alert title",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Что-то пошло не так"
+          }
+        }
       }
     },
     "Start Over" : {
       "comment" : "Store error screen button and destructive alert button",
       "localizations" : {
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Начать заново" } }
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Начать заново"
+          }
+        }
       }
     },
     "Start Over?" : {
       "comment" : "Confirmation alert title before moving the broken store aside",
       "localizations" : {
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Начать заново?" } }
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Начать заново?"
+          }
+        }
+      }
+    },
+    "Stored In" : {
+      "comment" : "Item form section showing the item's location path",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Где лежит"
+          }
+        }
+      }
+    },
+    "This can't be undone." : {
+      "comment" : "Delete confirmation message",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Это действие нельзя отменить."
+          }
+        }
+      }
+    },
+    "This item no longer exists." : {
+      "comment" : "Error: item was deleted",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Этот предмет больше не существует."
+          }
+        }
+      }
+    },
+    "This place no longer exists." : {
+      "comment" : "Error: location was deleted",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Это место больше не существует."
+          }
+        }
       }
     },
     "Try Again" : {
       "comment" : "Store error screen button",
       "localizations" : {
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Повторить" } }
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Повторить"
+          }
+        }
+      }
+    },
+    "Type" : {
+      "comment" : "Form section: kind of location",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тип"
+          }
+        }
+      }
+    },
+    "Type things one by one and press Return. You can add places inside too." : {
+      "comment" : "Hint under the quick-add field in an empty location",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вписывайте вещи по одной и нажимайте Return. Внутрь можно добавить и места."
+          }
+        }
       }
     },
     "Your current data file will be moved to a separate folder and the app will start empty." : {
       "comment" : "Confirmation alert message before moving the broken store aside",
       "localizations" : {
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Текущий файл данных будет перенесён в отдельную папку, а приложение начнёт работу с пустого списка." } }
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Текущий файл данных будет перенесён в отдельную папку, а приложение начнёт работу с пустого списка."
+          }
+        }
       }
     },
     "Your saved places and items couldn't be loaded. Try again. If it keeps happening, you can start over — the old data file will be kept in a separate folder." : {
       "comment" : "Store error screen description",
       "localizations" : {
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Не удалось загрузить сохранённые места и вещи. Попробуйте ещё раз. Если ошибка повторяется, можно начать заново — старый файл данных сохранится в отдельной папке." } }
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось загрузить сохранённые места и вещи. Попробуйте ещё раз. Если ошибка повторяется, можно начать заново — старый файл данных сохранится в отдельной папке."
+          }
+        }
       }
     }
   },

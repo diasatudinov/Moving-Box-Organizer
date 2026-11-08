@@ -2,6 +2,7 @@ import SwiftUI
 
 /// A ViewModel-owned description of an alert. ViewModels set it, views only present it
 /// with `.alert($viewModel.alert)` — one pattern for every confirmation and error in the app.
+/// Texts are already localized by the ViewModel (they often contain names and counts).
 /// ViewModels stay free of SwiftUI types: roles are mapped to `ButtonRole` only when presenting.
 struct AlertState: Identifiable {
     enum Role {
@@ -11,34 +12,43 @@ struct AlertState: Identifiable {
 
     struct Action: Identifiable {
         let id = UUID()
-        let title: LocalizedStringResource
+        let title: String
         let role: Role?
         let handler: () -> Void
 
-        init(title: LocalizedStringResource, role: Role? = nil, handler: @escaping () -> Void = {}) {
+        init(title: String, role: Role? = nil, handler: @escaping () -> Void = {}) {
             self.title = title
             self.role = role
             self.handler = handler
         }
 
         static func cancel() -> Action {
-            Action(title: "Cancel", role: .cancel)
+            Action(title: String(localized: "Cancel", comment: "Alert button"), role: .cancel)
         }
 
         static func ok() -> Action {
-            Action(title: "OK", role: .cancel)
+            Action(title: String(localized: "OK", comment: "Alert button"), role: .cancel)
         }
     }
 
     let id = UUID()
-    let title: LocalizedStringResource
-    let message: LocalizedStringResource?
+    let title: String
+    let message: String?
     let actions: [Action]
 
-    init(title: LocalizedStringResource, message: LocalizedStringResource? = nil, actions: [Action]) {
+    init(title: String, message: String? = nil, actions: [Action]) {
         self.title = title
         self.message = message
         self.actions = actions
+    }
+
+    /// Alert for an error thrown by a service; the error's own message is shown.
+    static func error(_ error: Error) -> AlertState {
+        AlertState(
+            title: String(localized: "Something Went Wrong", comment: "Generic error alert title"),
+            message: (error as? LocalizedError)?.errorDescription ?? error.localizedDescription,
+            actions: [.ok()]
+        )
     }
 }
 
@@ -58,12 +68,9 @@ extension View {
             get: { state.wrappedValue != nil },
             set: { if !$0 { state.wrappedValue = nil } }
         )
-        let title = state.wrappedValue.map { Text($0.title) } ?? Text(verbatim: "")
-        return alert(title, isPresented: isPresented, presenting: state.wrappedValue) { alert in
+        return alert(state.wrappedValue?.title ?? "", isPresented: isPresented, presenting: state.wrappedValue) { alert in
             ForEach(alert.actions) { action in
-                Button(role: action.role.map(ButtonRole.init), action: action.handler) {
-                    Text(action.title)
-                }
+                Button(action.title, role: action.role.map(ButtonRole.init), action: action.handler)
             }
         } message: { alert in
             if let message = alert.message {

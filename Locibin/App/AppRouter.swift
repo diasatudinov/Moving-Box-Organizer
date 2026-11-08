@@ -7,10 +7,21 @@ enum Route: Hashable {
     case location(UUID)
 }
 
-/// Owns navigation state. Sheets and deep link handling are added with their features.
+/// A modal form. Kept in the router (not in screen ViewModels) so that deep links
+/// can later check whether a form with unsaved changes is open.
+enum Sheet: Identifiable, Hashable {
+    case newLocation(parentID: UUID?)
+    case editLocation(UUID)
+    case editItem(UUID)
+
+    var id: Self { self }
+}
+
+/// Owns navigation state: the stack and the presented sheet.
 @Observable
 final class AppRouter {
     var path: [Route] = []
+    var sheet: Sheet?
 
     func showLocation(id: UUID) {
         path.append(.location(id))
@@ -18,5 +29,19 @@ final class AppRouter {
 
     func popToRoot() {
         path.removeAll()
+    }
+
+    /// Removes the location's screen and everything opened above it — used after deleting it.
+    func closeLocation(id: UUID) {
+        guard let index = path.firstIndex(of: .location(id)) else { return }
+        path.removeSubrange(index...)
+    }
+
+    func present(_ sheet: Sheet) {
+        self.sheet = sheet
+    }
+
+    func dismissSheet() {
+        sheet = nil
     }
 }
