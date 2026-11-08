@@ -1,24 +1,124 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "Project is set up" : {
+    "Box" : {
+      "comment" : "Location kind: box",
       "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Проект настроен"
-          }
-        }
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Коробка" } }
+      }
+    },
+    "Cabinet" : {
+      "comment" : "Location kind: cabinet or wardrobe",
+      "localizations" : {
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Шкаф" } }
+      }
+    },
+    "Can't Open Your Data" : {
+      "comment" : "Store error screen title",
+      "localizations" : {
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Не удаётся открыть данные" } }
+      }
+    },
+    "Cancel" : {
+      "comment" : "Alert button",
+      "localizations" : {
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Отмена" } }
+      }
+    },
+    "Container" : {
+      "comment" : "Location kind: plastic container or bin",
+      "localizations" : {
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Контейнер" } }
+      }
+    },
+    "Couldn't Start Over" : {
+      "comment" : "Alert title when moving the broken store aside failed",
+      "localizations" : {
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Не удалось начать заново" } }
+      }
+    },
+    "Drawer" : {
+      "comment" : "Location kind: drawer",
+      "localizations" : {
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Ящик" } }
+      }
+    },
+    "OK" : {
+      "comment" : "Alert button",
+      "localizations" : {
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "OK" } }
+      }
+    },
+    "Other" : {
+      "comment" : "Location kind: anything else",
+      "localizations" : {
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Другое" } }
+      }
+    },
+    "Please restart the app and try again." : {
+      "comment" : "Alert message when moving the broken store aside failed",
+      "localizations" : {
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Перезапустите приложение и попробуйте ещё раз." } }
+      }
+    },
+    "Project is set up" : {
+      "comment" : "Temporary placeholder title until the home screen exists",
+      "localizations" : {
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Проект настроен" } }
+      }
+    },
+    "Rack" : {
+      "comment" : "Location kind: shelving unit / rack",
+      "localizations" : {
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Стеллаж" } }
+      }
+    },
+    "Room" : {
+      "comment" : "Location kind: a room, e.g. garage or pantry",
+      "localizations" : {
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Помещение" } }
       }
     },
     "Screens will be added in the implementation stage." : {
+      "comment" : "Temporary placeholder description until the home screen exists",
       "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Экраны появятся на этапе реализации."
-          }
-        }
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Экраны появятся на этапе реализации." } }
+      }
+    },
+    "Shelf" : {
+      "comment" : "Location kind: a single shelf",
+      "localizations" : {
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Полка" } }
+      }
+    },
+    "Start Over" : {
+      "comment" : "Store error screen button and destructive alert button",
+      "localizations" : {
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Начать заново" } }
+      }
+    },
+    "Start Over?" : {
+      "comment" : "Confirmation alert title before moving the broken store aside",
+      "localizations" : {
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Начать заново?" } }
+      }
+    },
+    "Try Again" : {
+      "comment" : "Store error screen button",
+      "localizations" : {
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Повторить" } }
+      }
+    },
+    "Your current data file will be moved to a separate folder and the app will start empty." : {
+      "comment" : "Confirmation alert message before moving the broken store aside",
+      "localizations" : {
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Текущий файл данных будет перенесён в отдельную папку, а приложение начнёт работу с пустого списка." } }
+      }
+    },
+    "Your saved places and items couldn't be loaded. Try again. If it keeps happening, you can start over — the old data file will be kept in a separate folder." : {
+      "comment" : "Store error screen description",
+      "localizations" : {
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Не удалось загрузить сохранённые места и вещи. Попробуйте ещё раз. Если ошибка повторяется, можно начать заново — старый файл данных сохранится в отдельной папке." } }
       }
     }
   },
