@@ -40,6 +40,7 @@ struct HomeView: View {
                 Menu("More", systemImage: "ellipsis") {
                     Button("Print Labels", systemImage: "printer", action: viewModel.printLabelsTapped)
                         .disabled(viewModel.isEmpty)
+                    Button("Settings", systemImage: "gearshape", action: viewModel.settingsTapped)
                 }
             }
             ToolbarItem(placement: .topBarTrailing) {

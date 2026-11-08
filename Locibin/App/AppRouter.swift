@@ -27,6 +27,8 @@ enum Sheet: Identifiable, Hashable {
     case qrCode(UUID)
     case codeProblem(CodeProblem)
     case printLabels
+    /// `importing`: a backup file opened from the Files app, to confirm and import.
+    case settings(importing: URL? = nil)
 
     var id: Self { self }
 }

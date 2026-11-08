@@ -86,6 +86,10 @@ private struct MainNavigationView: View {
             ScreenHost(makeViewModel: dependencies.makePrintLabelsViewModel) { viewModel in
                 PrintLabelsView(viewModel: viewModel)
             }
+        case .settings(let url):
+            ScreenHost(makeViewModel: { dependencies.makeSettingsViewModel(importing: url) }) { viewModel in
+                SettingsView(viewModel: viewModel)
+            }
         }
     }
 }
