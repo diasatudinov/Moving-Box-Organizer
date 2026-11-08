@@ -16,6 +16,10 @@ final class DeepLinkHandler {
     }
 
     func handle(url: URL) {
+        if url.isFileURL {
+            handleFile(url)
+            return
+        }
         switch qrCodes.parse(url: url) {
         case .location(let id):
             open(locationID: id)
@@ -33,6 +37,18 @@ final class DeepLinkHandler {
             return
         }
         proceed(title: location.name) { [router] in router.showOnlyLocation(id: locationID) }
+    }
+
+    /// A backup opened from the Files app: Settings open and ask before replacing anything.
+    private func handleFile(_ url: URL) {
+        guard url.pathExtension.lowercased() == "storagebackup" else {
+            Logger.navigation.notice("Ignored a file that isn't a backup")
+            return
+        }
+        proceed(title: nil) { [router] in
+            router.popToRoot()
+            router.present(.settings(importing: url))
+        }
     }
 
     /// Runs `action` right away, or first asks what to do with unsaved edits in the open form.

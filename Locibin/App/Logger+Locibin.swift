@@ -11,4 +11,7 @@ extension Logger {
 
     /// Label PDFs and printing.
     static let labels = Logger(subsystem: subsystem, category: "labels")
+
+    /// Backup export and import.
+    static let backup = Logger(subsystem: subsystem, category: "backup")
 }

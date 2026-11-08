@@ -42,6 +42,10 @@ final class HomeViewModel {
         router.present(.printLabels)
     }
 
+    func settingsTapped() {
+        router.present(.settings())
+    }
+
     func deleteTapped(locationID: UUID) {
         do {
             guard let location = try inventory.location(id: locationID) else { return reload() }

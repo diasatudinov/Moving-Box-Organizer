@@ -224,6 +224,17 @@
         }
       }
     },
+    "About" : {
+      "comment" : "Settings section",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "О приложении"
+          }
+        }
+      }
+    },
     "Add" : {
       "comment" : "Toolbar menu: add an item or a place",
       "localizations" : {
@@ -264,6 +275,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Добавить место внутри"
+          }
+        }
+      }
+    },
+    "Backup" : {
+      "comment" : "Settings section",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Резервная копия"
           }
         }
       }
@@ -389,6 +411,17 @@
         }
       }
     },
+    "Couldn't create the backup file. Try again." : {
+      "comment" : "Export error",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось создать файл копии. Попробуйте ещё раз."
+          }
+        }
+      }
+    },
     "Couldn't create the PDF. Try again." : {
       "comment" : "Error: writing the label PDF failed",
       "localizations" : {
@@ -396,6 +429,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не удалось создать PDF. Попробуйте ещё раз."
+          }
+        }
+      }
+    },
+    "Couldn't import the backup. Your current data hasn't changed." : {
+      "comment" : "Import error",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось импортировать копию. Текущие данные не изменились."
+          }
+        }
+      }
+    },
+    "Couldn't open the file. Try again." : {
+      "comment" : "Import error",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось открыть файл. Попробуйте ещё раз."
           }
         }
       }
@@ -451,6 +506,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Сейчас здесь"
+          }
+        }
+      }
+    },
+    "Data Imported" : {
+      "comment" : "Import success title",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Данные импортированы"
           }
         }
       }
@@ -609,6 +675,17 @@
         }
       }
     },
+    "Export Data" : {
+      "comment" : "Settings: share a backup file",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Экспорт данных"
+          }
+        }
+      }
+    },
     "Find a place" : {
       "comment" : "Filter field in the move picker",
       "localizations" : {
@@ -616,6 +693,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Найти место"
+          }
+        }
+      }
+    },
+    "Import Data" : {
+      "comment" : "Settings: choose a backup file",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Импорт данных"
+          }
+        }
+      }
+    },
+    "Imported: %@." : {
+      "comment" : "Import success message; the argument is like '12 places · 140 items'",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Импортировано: %@."
           }
         }
       }
@@ -726,6 +825,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Большая: 90 × 60 мм, 8 на листе. Маленькая: 50 × 50 мм, 15 на листе."
+          }
+        }
+      }
+    },
+    "Locibin Backup — %@" : {
+      "comment" : "Backup file name; the argument is a date",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Locibin, копия — %@"
           }
         }
       }
@@ -1049,6 +1159,39 @@
         }
       }
     },
+    "Replace" : {
+      "comment" : "Destructive button: replace all data with the backup",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Заменить"
+          }
+        }
+      }
+    },
+    "Replace All Data?" : {
+      "comment" : "Import confirmation title",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Заменить все данные?"
+          }
+        }
+      }
+    },
+    "Restore Data from Before Last Import" : {
+      "comment" : "Settings: undo the last import",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вернуть данные до последнего импорта"
+          }
+        }
+      }
+    },
     "Room" : {
       "comment" : "Location kind: a room, e.g. garage or pantry",
       "localizations" : {
@@ -1122,6 +1265,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Выбрать все"
+          }
+        }
+      }
+    },
+    "Settings" : {
+      "comment" : "Settings screen title and menu action",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Настройки"
           }
         }
       }
@@ -1214,6 +1368,17 @@
         }
       }
     },
+    "The backup file is damaged and can't be imported. Your current data hasn't changed." : {
+      "comment" : "Import error",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Файл копии повреждён и не может быть импортирован. Текущие данные не изменились."
+          }
+        }
+      }
+    },
     "The camera is needed only to scan QR codes on your storage places. Allow access in Settings." : {
       "comment" : "Scanner: explanation when camera access is denied",
       "localizations" : {
@@ -1221,6 +1386,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Камера нужна только для сканирования QR-кодов на ваших местах хранения. Разрешите доступ в Настройках."
+          }
+        }
+      }
+    },
+    "The file has %@, saved on %@. Your current data (%@) will be replaced. A copy of it is kept so you can restore it." : {
+      "comment" : "Import confirmation message: incoming summary, backup date, current summary",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "В файле %@, копия от %@. Текущие данные (%@) будут заменены. Их копия сохранится, чтобы их можно было вернуть."
+          }
+        }
+      }
+    },
+    "The file is too large to be a backup of this app." : {
+      "comment" : "Import error",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Файл слишком большой для резервной копии этого приложения."
+          }
+        }
+      }
+    },
+    "This backup was made by a newer version of the app. Update the app and try again." : {
+      "comment" : "Import error",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Эта копия создана более новой версией приложения. Обновите приложение и попробуйте ещё раз."
           }
         }
       }
@@ -1254,6 +1452,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "На этом устройстве нет камеры, которую можно использовать для сканирования."
+          }
+        }
+      }
+    },
+    "This file isn't a backup of this app." : {
+      "comment" : "Import error",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Этот файл не является резервной копией этого приложения."
           }
         }
       }
@@ -1390,6 +1599,17 @@
         }
       }
     },
+    "Version" : {
+      "comment" : "Settings: app version row",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Версия"
+          }
+        }
+      }
+    },
     "Your changes haven't been saved." : {
       "comment" : "Alert message: the open form has unsaved changes",
       "localizations" : {
@@ -1408,6 +1628,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Текущий файл данных будет перенесён в отдельную папку, а приложение начнёт работу с пустого списка."
+          }
+        }
+      }
+    },
+    "Your data is stored only on this iPhone. Save a copy to Files before changing phones. Importing replaces all current data." : {
+      "comment" : "Settings: backup section footer",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Данные хранятся только на этом iPhone. Сохраните копию в «Файлы» перед сменой телефона. Импорт заменяет все текущие данные."
           }
         }
       }
