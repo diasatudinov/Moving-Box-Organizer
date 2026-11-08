@@ -82,6 +82,10 @@ private struct MainNavigationView: View {
             }
         case .codeProblem(let problem):
             CodeProblemView(problem: problem, onClose: router.dismissSheet)
+        case .printLabels:
+            ScreenHost(makeViewModel: dependencies.makePrintLabelsViewModel) { viewModel in
+                PrintLabelsView(viewModel: viewModel)
+            }
         }
     }
 }

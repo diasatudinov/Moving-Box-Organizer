@@ -8,4 +8,7 @@ extension Logger {
 
     /// Deep links and opening scanned codes.
     static let navigation = Logger(subsystem: subsystem, category: "navigation")
+
+    /// Label PDFs and printing.
+    static let labels = Logger(subsystem: subsystem, category: "labels")
 }

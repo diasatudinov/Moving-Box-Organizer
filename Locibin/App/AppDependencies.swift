@@ -10,6 +10,8 @@ final class AppDependencies {
     let storeChanges: StoreChanges
     let qrCodes = QRCodeService()
     let deepLinks: DeepLinkHandler
+    let labels: LabelSheetService
+    let printService = PrintService()
 
     init(modelContainer: ModelContainer, router: AppRouter = AppRouter()) {
         self.modelContainer = modelContainer
@@ -17,6 +19,7 @@ final class AppDependencies {
         self.inventory = InventoryService(context: modelContainer.mainContext)
         self.storeChanges = StoreChanges(context: modelContainer.mainContext)
         self.deepLinks = DeepLinkHandler(inventory: inventory, router: router, qrCodes: qrCodes)
+        self.labels = LabelSheetService(inventory: inventory, qrCodes: qrCodes)
     }
 
     var modelContext: ModelContext {
@@ -81,7 +84,15 @@ final class AppDependencies {
     }
 
     func makeQRCodeViewModel(locationID: UUID) -> QRCodeViewModel {
-        QRCodeViewModel(locationID: locationID, inventory: inventory, qrCodes: qrCodes, router: router)
+        QRCodeViewModel(locationID: locationID, inventory: inventory, qrCodes: qrCodes, labels: labels, router: router) { [printService] data, jobName in
+            printService.printPDF(data, jobName: jobName)
+        }
+    }
+
+    func makePrintLabelsViewModel() -> PrintLabelsViewModel {
+        PrintLabelsViewModel(inventory: inventory, labels: labels, router: router) { [printService] data, jobName in
+            printService.printPDF(data, jobName: jobName)
+        }
     }
 
     func makeItemFormViewModel(id: UUID) -> ItemFormViewModel {

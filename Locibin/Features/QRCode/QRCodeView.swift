@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct QRCodeView: View {
-    let viewModel: QRCodeViewModel
+    @Bindable var viewModel: QRCodeViewModel
 
     var body: some View {
         Group {
@@ -49,6 +49,22 @@ struct QRCodeView: View {
                     .padding(.vertical, 16)
                     .frame(maxWidth: .infinity)
                 }
+                .safeAreaInset(edge: .bottom) {
+                    VStack(spacing: 10) {
+                        Button(action: viewModel.printTapped) {
+                            Label("Print", systemImage: "printer").frame(maxWidth: .infinity)
+                        }
+                        .primaryButtonStyle()
+                        if let sheet = viewModel.labelSheet {
+                            ShareLink(item: sheet.fileURL) {
+                                Label("Share PDF", systemImage: "square.and.arrow.up").frame(maxWidth: .infinity)
+                            }
+                            .secondaryButtonStyle()
+                        }
+                    }
+                    .padding(.horizontal, 16)
+                    .padding(.bottom, 8)
+                }
             case .missing:
                 ContentUnavailableView("This place no longer exists.", systemImage: "questionmark.folder")
             }
@@ -59,5 +75,6 @@ struct QRCodeView: View {
                 Button("Done", action: viewModel.doneTapped)
             }
         }
+        .alert($viewModel.alert)
     }
 }

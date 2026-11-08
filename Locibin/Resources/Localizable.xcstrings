@@ -54,6 +54,59 @@
         }
       }
     },
+    "%lld labels" : {
+      "comment" : "Number of labels to print",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld label"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld labels"
+                }
+              }
+            }
+          }
+        },
+        "ru" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld наклейка"
+                }
+              },
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld наклейки"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld наклеек"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld наклейки"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "%lld places" : {
       "comment" : "Number of storage places, e.g. in a row subtitle",
       "localizations" : {
@@ -100,6 +153,59 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "%lld места"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld sheets" : {
+      "comment" : "Number of paper sheets",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld sheet"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld sheets"
+                }
+              }
+            }
+          }
+        },
+        "ru" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld лист"
+                }
+              },
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld листа"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld листов"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld листа"
                 }
               }
             }
@@ -239,6 +345,17 @@
         }
       }
     },
+    "Choose at least one place." : {
+      "comment" : "Error: no places selected for printing labels",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выберите хотя бы одно место."
+          }
+        }
+      }
+    },
     "Close" : {
       "comment" : "Button that closes a screen",
       "localizations" : {
@@ -268,6 +385,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Контейнер"
+          }
+        }
+      }
+    },
+    "Couldn't create the PDF. Try again." : {
+      "comment" : "Error: writing the label PDF failed",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось создать PDF. Попробуйте ещё раз."
           }
         }
       }
@@ -367,6 +495,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Удалить «%@»?"
+          }
+        }
+      }
+    },
+    "Deselect All" : {
+      "comment" : "Deselect all places",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Снять выбор"
           }
         }
       }
@@ -547,6 +686,50 @@
         }
       }
     },
+    "Label Size" : {
+      "comment" : "Print labels: section and picker",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Размер наклейки"
+          }
+        }
+      }
+    },
+    "Labels — %@" : {
+      "comment" : "PDF title and file name; the argument is a date",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Наклейки — %@"
+          }
+        }
+      }
+    },
+    "Large" : {
+      "comment" : "Label size",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Большая"
+          }
+        }
+      }
+    },
+    "Large: 90 × 60 mm, 8 per sheet. Small: 50 × 50 mm, 15 per sheet." : {
+      "comment" : "Print labels: explains label sizes",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Большая: 90 × 60 мм, 8 на листе. Маленькая: 50 × 50 мм, 15 на листе."
+          }
+        }
+      }
+    },
     "More" : {
       "comment" : "Toolbar menu with more actions",
       "localizations" : {
@@ -701,6 +884,17 @@
         }
       }
     },
+    "Paper" : {
+      "comment" : "Print labels: paper size section",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Лист"
+          }
+        }
+      }
+    },
     "Place Not Found" : {
       "comment" : "Title after scanning a code of an unknown location",
       "localizations" : {
@@ -752,6 +946,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Наведите камеру на QR-код места"
+          }
+        }
+      }
+    },
+    "Preview" : {
+      "comment" : "Button and title: PDF preview",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Предпросмотр"
+          }
+        }
+      }
+    },
+    "Print" : {
+      "comment" : "Button: print",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Печать"
+          }
+        }
+      }
+    },
+    "Print Labels" : {
+      "comment" : "Screen title and menu action",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Печать наклеек"
           }
         }
       }
@@ -888,6 +1115,28 @@
         }
       }
     },
+    "Select All" : {
+      "comment" : "Select all places",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выбрать все"
+          }
+        }
+      }
+    },
+    "Share PDF" : {
+      "comment" : "Button: share the label PDF",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Поделиться PDF"
+          }
+        }
+      }
+    },
     "Shelf" : {
       "comment" : "Location kind: a single shelf",
       "localizations" : {
@@ -895,6 +1144,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Полка"
+          }
+        }
+      }
+    },
+    "Small" : {
+      "comment" : "Label size",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Маленькая"
           }
         }
       }
