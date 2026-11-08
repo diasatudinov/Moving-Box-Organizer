@@ -40,6 +40,11 @@ private struct MainNavigationView: View {
             }
         }
         .alert($router.alertOverRoot)
+        .fullScreenCover(isPresented: $router.isScannerPresented) {
+            ScreenHost(makeViewModel: dependencies.makeScannerViewModel) { viewModel in
+                ScannerView(viewModel: viewModel)
+            }
+        }
         .sheet(item: $router.sheet) { sheet in
             NavigationStack {
                 sheetContent(sheet)

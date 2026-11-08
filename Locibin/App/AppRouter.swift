@@ -42,6 +42,8 @@ protocol UnsavedChangesGuard: AnyObject {
 final class AppRouter {
     var path: [Route] = []
     var sheet: Sheet?
+    /// The full-screen scanner.
+    var isScannerPresented = false
     /// App-level alert (for example: a link arrived while a form has unsaved changes).
     var alert: AlertState?
 
@@ -66,8 +68,17 @@ final class AppRouter {
 
     /// Opens a location as the only screen above the main list — used for scans and links.
     func showOnlyLocation(id: UUID) {
+        isScannerPresented = false
         sheet = nil
         path = [.location(id)]
+    }
+
+    func presentScanner() {
+        isScannerPresented = true
+    }
+
+    func dismissScanner() {
+        isScannerPresented = false
     }
 
     func popToRoot() {

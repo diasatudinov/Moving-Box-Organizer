@@ -75,6 +75,11 @@ final class AppDependencies {
         LocationFormViewModel(mode: mode, inventory: inventory, router: router)
     }
 
+    /// A fresh camera for every scanner presentation.
+    func makeScannerViewModel() -> ScannerViewModel {
+        ScannerViewModel(camera: CameraScanner(), inventory: inventory, router: router, qrCodes: qrCodes)
+    }
+
     func makeQRCodeViewModel(locationID: UUID) -> QRCodeViewModel {
         QRCodeViewModel(locationID: locationID, inventory: inventory, qrCodes: qrCodes, router: router)
     }
