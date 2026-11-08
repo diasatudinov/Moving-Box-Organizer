@@ -10,6 +10,12 @@ struct LocationContents: Equatable {
     var items: Int
 }
 
+/// One line of the whole hierarchy flattened for a picker.
+struct LocationTreeEntry {
+    let location: StorageLocation
+    let depth: Int
+}
+
 /// Result of a search over items and locations.
 struct InventorySearchResults {
     var items: [Item]
@@ -63,6 +69,18 @@ final class InventoryService {
         (location.items ?? []).sorted { lhs, rhs in
             lhs.createdAt == rhs.createdAt ? lhs.id.uuidString < rhs.id.uuidString : lhs.createdAt < rhs.createdAt
         }
+    }
+
+    /// Every location, depth-first in natural order: a parent is followed by its children.
+    func locationTree() throws -> [LocationTreeEntry] {
+        var entries: [LocationTreeEntry] = []
+        var stack = try rootLocations().reversed().map { LocationTreeEntry(location: $0, depth: 0) }
+        while let entry = stack.popLast() {
+            entries.append(entry)
+            guard entry.depth < Self.maxDepth else { continue }
+            stack.append(contentsOf: children(of: entry.location).reversed().map { LocationTreeEntry(location: $0, depth: entry.depth + 1) })
+        }
+        return entries
     }
 
     /// Locations from the top level down to `location` itself.

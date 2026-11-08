@@ -1,20 +1,23 @@
 import Foundation
 import Observation
 
-/// Edit an item: name, optional quantity and note. Items are created by quick add on the location screen.
+/// Edit an item: name, optional quantity, note and where it is stored.
+/// Items are created by quick add on the location screen. Everything — including a new
+/// location chosen here — is applied only on "Done", so "Cancel" really changes nothing.
 @Observable
 final class ItemFormViewModel {
     struct Draft: Equatable {
         var name = ""
         var quantity: Int?
         var note = ""
+        var locationID: UUID?
     }
 
     let itemID: UUID
     var draft: Draft
     var alert: AlertState?
-    /// "Garage › Rack 1 › Shelf 1".
-    private(set) var locationPathText = ""
+    /// Drives the pushed location picker inside the form.
+    var isPickingLocation = false
     private(set) var isMissing = false
 
     private let original: Draft
@@ -32,10 +35,7 @@ final class ItemFormViewModel {
 
         var draft = Draft()
         if let item = try? inventory.item(id: itemID) {
-            draft = Draft(name: item.name, quantity: item.quantity, note: item.note ?? "")
-            if let location = item.location {
-                locationPathText = inventory.path(to: location).map(\.name).joined(separator: " › ")
-            }
+            draft = Draft(name: item.name, quantity: item.quantity, note: item.note ?? "", locationID: item.location?.id)
         } else {
             isMissing = true
         }
@@ -49,6 +49,12 @@ final class ItemFormViewModel {
 
     var hasUnsavedChanges: Bool {
         draft != original
+    }
+
+    /// "Garage › Rack 1 › Shelf 1" for the location in the draft.
+    var locationPathText: String {
+        guard let id = draft.locationID, let location = try? inventory.location(id: id) else { return "" }
+        return inventory.path(to: location).map(\.name).joined(separator: " › ")
     }
 
     var quantityText: String {
@@ -70,9 +76,31 @@ final class ItemFormViewModel {
         draft.quantity = quantity > 1 ? quantity - 1 : nil
     }
 
+    func chooseLocationTapped() {
+        isPickingLocation = true
+    }
+
+    /// Picker pushed inside the form; the choice only goes into the draft.
+    func makeLocationPicker() -> LocationPickerViewModel {
+        LocationPickerViewModel(
+            subjectName: draft.name,
+            subject: .item,
+            current: draft.locationID.map { .location($0) },
+            inventory: inventory,
+            showsCancel: false,
+            apply: { [weak self] target in
+                if case .location(let id) = target { self?.draft.locationID = id }
+            },
+            close: { [weak self] in self?.isPickingLocation = false }
+        )
+    }
+
     func save() {
         do {
             try inventory.updateItem(id: itemID, name: draft.name, quantity: draft.quantity, note: draft.note)
+            if let locationID = draft.locationID, locationID != original.locationID {
+                try inventory.moveItem(id: itemID, toLocationID: locationID)
+            }
             router.dismissSheet()
         } catch {
             alert = .error(error)
@@ -86,8 +114,8 @@ final class ItemFormViewModel {
 
     func deleteTapped() {
         alert = AlertState(
-            title: String(localized: "Delete “\(original.name)”?", comment: "Delete confirmation title; the argument is the location name"),
-            message: String(localized: "This can't be undone.", comment: "Delete confirmation message for an empty location"),
+            title: String(localized: "Delete “\(original.name)”?", comment: "Delete confirmation title; the argument is a location or item name"),
+            message: String(localized: "This can't be undone.", comment: "Delete confirmation message"),
             actions: [
                 .cancel(),
                 AlertState.Action(title: String(localized: "Delete", comment: "Destructive button"), role: .destructive) { [weak self] in

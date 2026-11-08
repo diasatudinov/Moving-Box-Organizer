@@ -206,6 +206,17 @@
         }
       }
     },
+    "Choose a new place for “%@”." : {
+      "comment" : "Move picker header; the argument is the item or location name",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выберите новое место для «%@»."
+          }
+        }
+      }
+    },
     "Container" : {
       "comment" : "Location kind: plastic container or bin",
       "localizations" : {
@@ -257,6 +268,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Создайте первое место — например, «Гараж» или «Кладовка», — а затем добавьте внутрь полки, ящики и вещи."
+          }
+        }
+      }
+    },
+    "Current" : {
+      "comment" : "Marks the current location in the move picker",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сейчас здесь"
           }
         }
       }
@@ -393,6 +415,17 @@
         }
       }
     },
+    "Find a place" : {
+      "comment" : "Filter field in the move picker",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Найти место"
+          }
+        }
+      }
+    },
     "Increase" : {
       "comment" : "Accessibility label: increase quantity",
       "localizations" : {
@@ -466,6 +499,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ещё"
+          }
+        }
+      }
+    },
+    "Move" : {
+      "comment" : "Move action, picker title and swipe button",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Переместить"
+          }
+        }
+      }
+    },
+    "Move to Top Level" : {
+      "comment" : "Move picker confirm button for the top level",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Переместить на верхний уровень"
+          }
+        }
+      }
+    },
+    "Move to “%@”" : {
+      "comment" : "Move picker confirm button; the argument is the target location name",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Переместить в «%@»"
           }
         }
       }
@@ -646,6 +712,17 @@
         }
       }
     },
+    "Search items and places" : {
+      "comment" : "Search field prompt on the main screen",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Поиск вещей и мест"
+          }
+        }
+      }
+    },
     "Shelf" : {
       "comment" : "Location kind: a single shelf",
       "localizations" : {
@@ -730,6 +807,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Это место больше не существует."
+          }
+        }
+      }
+    },
+    "Top Level" : {
+      "comment" : "Move target: no parent location",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Верхний уровень"
           }
         }
       }

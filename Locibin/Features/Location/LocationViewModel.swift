@@ -25,6 +25,10 @@ final class LocationViewModel {
     private(set) var state: State = .missing
     var quickAddText = ""
     var alert: AlertState?
+    /// An item found by search; highlighted briefly when the screen opens.
+    private(set) var highlightedItemID: UUID?
+
+    static let highlightDuration: Duration = .seconds(1.5)
 
     private let inventory: InventoryService
     private let router: AppRouter
@@ -34,12 +38,14 @@ final class LocationViewModel {
 
     init(
         locationID: UUID,
+        highlightedItemID: UUID? = nil,
         inventory: InventoryService,
         router: AppRouter,
         storeChanges: StoreChanges,
         locale: Locale = .current
     ) {
         self.locationID = locationID
+        self.highlightedItemID = highlightedItemID
         self.inventory = inventory
         self.router = router
         self.locale = locale
@@ -77,6 +83,29 @@ final class LocationViewModel {
 
     func itemTapped(id: UUID) {
         router.present(.editItem(id))
+    }
+
+    func moveItemTapped(id: UUID) {
+        router.present(.moveItem(id))
+    }
+
+    func moveTapped() {
+        router.present(.moveLocation(locationID))
+    }
+
+    func moveSublocationTapped(id: UUID) {
+        router.present(.moveLocation(id))
+    }
+
+    /// Called once the highlighted item is on screen; the highlight fades after a moment.
+    func highlightShown() async {
+        guard highlightedItemID != nil else { return }
+        try? await Task.sleep(for: Self.highlightDuration)
+        clearHighlight()
+    }
+
+    func clearHighlight() {
+        highlightedItemID = nil
     }
 
     func addSublocationTapped() {

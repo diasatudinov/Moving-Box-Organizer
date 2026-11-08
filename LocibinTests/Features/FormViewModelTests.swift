@@ -92,7 +92,7 @@ struct ItemFormViewModelTests {
         let fixture = try InventoryFixture()
         let viewModel = makeViewModel(fixture, item: fixture.drill, router: AppRouter())
 
-        #expect(viewModel.draft == .init(name: "Bosch drill", quantity: nil, note: "In the case"))
+        #expect(viewModel.draft == .init(name: "Bosch drill", quantity: nil, note: "In the case", locationID: fixture.shelf.id))
         #expect(viewModel.locationPathText == "Garage › Rack 1 › Shelf 1")
         #expect(!viewModel.hasUnsavedChanges)
     }

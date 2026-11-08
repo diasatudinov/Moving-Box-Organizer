@@ -24,13 +24,15 @@ private struct MainNavigationView: View {
 
     var body: some View {
         NavigationStack(path: $router.path) {
-            ScreenHost(makeViewModel: dependencies.makeHomeViewModel) { viewModel in
-                HomeView(viewModel: viewModel)
+            ScreenHost(makeViewModel: dependencies.makeHomeViewModel) { home in
+                ScreenHost(makeViewModel: dependencies.makeSearchViewModel) { search in
+                    HomeView(viewModel: home, search: search)
+                }
             }
             .navigationDestination(for: Route.self) { route in
                 switch route {
-                case .location(let id):
-                    ScreenHost(makeViewModel: { dependencies.makeLocationViewModel(id: id) }) { viewModel in
+                case .location(let id, let highlightedItemID):
+                    ScreenHost(makeViewModel: { dependencies.makeLocationViewModel(id: id, highlightedItemID: highlightedItemID) }) { viewModel in
                         LocationView(viewModel: viewModel)
                     }
                 }
@@ -57,6 +59,14 @@ private struct MainNavigationView: View {
         case .editItem(let id):
             ScreenHost(makeViewModel: { dependencies.makeItemFormViewModel(id: id) }) { viewModel in
                 ItemFormView(viewModel: viewModel)
+            }
+        case .moveItem(let id):
+            ScreenHost(makeViewModel: { dependencies.makeMoveItemPicker(itemID: id) }) { viewModel in
+                LocationPickerView(viewModel: viewModel)
+            }
+        case .moveLocation(let id):
+            ScreenHost(makeViewModel: { dependencies.makeMoveLocationPicker(locationID: id) }) { viewModel in
+                LocationPickerView(viewModel: viewModel)
             }
         }
     }
