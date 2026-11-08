@@ -217,6 +217,28 @@
         }
       }
     },
+    "Close" : {
+      "comment" : "Button that closes a screen",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Закрыть"
+          }
+        }
+      }
+    },
+    "Code Not Recognized" : {
+      "comment" : "Title after scanning a damaged code of this app",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Код не распознан"
+          }
+        }
+      }
+    },
     "Container" : {
       "comment" : "Location kind: plastic container or bin",
       "localizations" : {
@@ -345,6 +367,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Отменить изменения?"
+          }
+        }
+      }
+    },
+    "Don't Save" : {
+      "comment" : "Button: discard the form's changes and open the scanned place",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не сохранять"
           }
         }
       }
@@ -602,6 +635,17 @@
         }
       }
     },
+    "Open “%@”?" : {
+      "comment" : "Alert title: a scanned place is about to open while a form has unsaved changes",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Открыть «%@»?"
+          }
+        }
+      }
+    },
     "Other" : {
       "comment" : "Location kind: anything else",
       "localizations" : {
@@ -609,6 +653,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Другое"
+          }
+        }
+      }
+    },
+    "Place Not Found" : {
+      "comment" : "Title after scanning a code of an unknown location",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Место не найдено"
           }
         }
       }
@@ -657,6 +712,28 @@
         }
       }
     },
+    "QR Code" : {
+      "comment" : "Toolbar button: show the location's QR code",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QR-код"
+          }
+        }
+      }
+    },
+    "QR code for “%@”" : {
+      "comment" : "Accessibility label of the QR image; the argument is the location name",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QR-код места «%@»"
+          }
+        }
+      }
+    },
     "Quantity" : {
       "comment" : "Item form section",
       "localizations" : {
@@ -697,6 +774,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Помещение"
+          }
+        }
+      }
+    },
+    "Save and Open" : {
+      "comment" : "Button: save the form, then open the scanned place",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сохранить и открыть"
           }
         }
       }
@@ -767,6 +855,17 @@
         }
       }
     },
+    "Stay" : {
+      "comment" : "Button: keep editing the form",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Остаться"
+          }
+        }
+      }
+    },
     "Stored In" : {
       "comment" : "Item form section showing the item's location path",
       "localizations" : {
@@ -789,6 +888,17 @@
         }
       }
     },
+    "This code won't change if you rename the place or change what's inside." : {
+      "comment" : "Note under the QR code",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Код не изменится, если переименовать место или поменять его содержимое."
+          }
+        }
+      }
+    },
     "This item no longer exists." : {
       "comment" : "Error: item was deleted",
       "localizations" : {
@@ -800,6 +910,17 @@
         }
       }
     },
+    "This place isn't in the app. It may have been deleted, or its data is on another iPhone." : {
+      "comment" : "Explanation after scanning a code of an unknown location",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Этого места нет в приложении. Возможно, оно было удалено или его данные хранятся на другом iPhone."
+          }
+        }
+      }
+    },
     "This place no longer exists." : {
       "comment" : "Error: location was deleted",
       "localizations" : {
@@ -807,6 +928,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Это место больше не существует."
+          }
+        }
+      }
+    },
+    "This QR code looks damaged or was made by a newer version of the app." : {
+      "comment" : "Explanation after scanning a damaged code",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Похоже, этот QR-код повреждён или создан более новой версией приложения."
           }
         }
       }
@@ -851,6 +983,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Вписывайте вещи по одной и нажимайте Return. Внутрь можно добавить и места."
+          }
+        }
+      }
+    },
+    "Unsaved Changes" : {
+      "comment" : "Alert title: a scanned code arrived while a form has unsaved changes",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Изменения не сохранены"
+          }
+        }
+      }
+    },
+    "Your changes haven't been saved." : {
+      "comment" : "Alert message: the open form has unsaved changes",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Изменения в открытой форме не сохранены."
           }
         }
       }

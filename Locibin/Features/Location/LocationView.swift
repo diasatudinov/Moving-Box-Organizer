@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// The same screen for every level: a garage, a rack or a box. The QR action is added in 5.5.
+/// The same screen for every level: a garage, a rack or a box.
 struct LocationView: View {
     @Bindable var viewModel: LocationViewModel
     @FocusState private var isQuickAddFocused: Bool
@@ -109,6 +109,9 @@ struct LocationView: View {
 
     @ToolbarContentBuilder
     private var toolbar: some ToolbarContent {
+        ToolbarItem(placement: .topBarTrailing) {
+            Button("QR Code", systemImage: "qrcode", action: viewModel.qrCodeTapped)
+        }
         ToolbarItem(placement: .topBarTrailing) {
             Menu("Add", systemImage: "plus") {
                 Button("Add Item", systemImage: "text.badge.plus") { isQuickAddFocused = true }

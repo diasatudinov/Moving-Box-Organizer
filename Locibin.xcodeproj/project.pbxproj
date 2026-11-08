@@ -276,6 +276,7 @@
 				DEVELOPMENT_TEAM = CQKW5SV7PX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Config/Locibin-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Locibin;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -309,6 +310,7 @@
 				DEVELOPMENT_TEAM = CQKW5SV7PX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Config/Locibin-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Locibin;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

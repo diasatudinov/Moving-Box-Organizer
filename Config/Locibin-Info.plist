@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyLists/1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!--
+	Keys that build settings can't express. Everything else is generated from build settings
+	(GENERATE_INFOPLIST_FILE = YES) and merged with this file.
+	-->
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.diasiosdev.locibin.location</string>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<!-- Printed on every QR label: never change. -->
+				<string>com.organizestorage</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

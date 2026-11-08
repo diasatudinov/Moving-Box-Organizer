@@ -8,12 +8,15 @@ final class AppDependencies {
     let router: AppRouter
     let inventory: InventoryService
     let storeChanges: StoreChanges
+    let qrCodes = QRCodeService()
+    let deepLinks: DeepLinkHandler
 
     init(modelContainer: ModelContainer, router: AppRouter = AppRouter()) {
         self.modelContainer = modelContainer
         self.router = router
         self.inventory = InventoryService(context: modelContainer.mainContext)
         self.storeChanges = StoreChanges(context: modelContainer.mainContext)
+        self.deepLinks = DeepLinkHandler(inventory: inventory, router: router, qrCodes: qrCodes)
     }
 
     var modelContext: ModelContext {
@@ -70,6 +73,10 @@ final class AppDependencies {
 
     func makeLocationFormViewModel(mode: LocationFormViewModel.Mode) -> LocationFormViewModel {
         LocationFormViewModel(mode: mode, inventory: inventory, router: router)
+    }
+
+    func makeQRCodeViewModel(locationID: UUID) -> QRCodeViewModel {
+        QRCodeViewModel(locationID: locationID, inventory: inventory, qrCodes: qrCodes, router: router)
     }
 
     func makeItemFormViewModel(id: UUID) -> ItemFormViewModel {

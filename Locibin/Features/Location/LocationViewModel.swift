@@ -93,6 +93,10 @@ final class LocationViewModel {
         router.present(.moveLocation(locationID))
     }
 
+    func qrCodeTapped() {
+        router.present(.qrCode(locationID))
+    }
+
     func moveSublocationTapped(id: UUID) {
         router.present(.moveLocation(id))
     }

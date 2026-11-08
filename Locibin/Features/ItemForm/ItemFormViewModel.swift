@@ -5,7 +5,7 @@ import Observation
 /// Items are created by quick add on the location screen. Everything — including a new
 /// location chosen here — is applied only on "Done", so "Cancel" really changes nothing.
 @Observable
-final class ItemFormViewModel {
+final class ItemFormViewModel: UnsavedChangesGuard {
     struct Draft: Equatable {
         var name = ""
         var quantity: Int?
@@ -41,6 +41,7 @@ final class ItemFormViewModel {
         }
         self.draft = draft
         self.original = draft
+        router.activeForm = self
     }
 
     var canSave: Bool {

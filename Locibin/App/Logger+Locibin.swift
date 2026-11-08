@@ -5,4 +5,7 @@ extension Logger {
 
     /// Persistence: opening the store, saving, recovery.
     static let data = Logger(subsystem: subsystem, category: "data")
+
+    /// Deep links and opening scanned codes.
+    static let navigation = Logger(subsystem: subsystem, category: "navigation")
 }
