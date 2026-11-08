@@ -36,7 +36,13 @@ struct HomeView: View {
         .navigationTitle("Places")
         .searchable(text: $search.query, prompt: Text("Search items and places"))
         .toolbar {
-            ToolbarItem(placement: .primaryAction) {
+            ToolbarItem(placement: .topBarTrailing) {
+                Menu("More", systemImage: "ellipsis") {
+                    Button("Print Labels", systemImage: "printer", action: viewModel.printLabelsTapped)
+                        .disabled(viewModel.isEmpty)
+                }
+            }
+            ToolbarItem(placement: .topBarTrailing) {
                 Button("New Place", systemImage: "plus", action: viewModel.addLocationTapped)
             }
         }

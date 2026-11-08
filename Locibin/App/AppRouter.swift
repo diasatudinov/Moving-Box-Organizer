@@ -26,6 +26,7 @@ enum Sheet: Identifiable, Hashable {
     case moveLocation(UUID)
     case qrCode(UUID)
     case codeProblem(CodeProblem)
+    case printLabels
 
     var id: Self { self }
 }
