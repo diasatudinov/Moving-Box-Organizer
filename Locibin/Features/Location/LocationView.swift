@@ -30,13 +30,13 @@ struct LocationView: View {
                         Image(systemName: content.kind.symbolName)
                     }
                     .font(.subheadline)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(Color.secondaryText)
                     .listRowBackground(Color.clear)
                     .listRowInsets(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 0))
                 }
 
                 if !content.sublocations.isEmpty {
-                    Section("Places Inside") {
+                    Section {
                         ForEach(content.sublocations) { row in
                             NavigationLink(value: Route.location(row.id)) {
                                 LocationRow(row: row)
@@ -51,12 +51,16 @@ struct LocationView: View {
                                 .tint(.accentColor)
                             }
                         }
+                    } header: {
+                        SectionHeader("Places Inside")
                     }
                 }
 
                 Section {
                     ForEach(content.items) { row in
                         Button {
+                            // Don't bring the keyboard back when the item sheet closes.
+                            isQuickAddFocused = false
                             viewModel.itemTapped(id: row.id)
                         } label: {
                             ItemRow(row: row)
@@ -76,7 +80,7 @@ struct LocationView: View {
                     }
                     quickAddField
                 } header: {
-                    Text("Items")
+                    SectionHeader("Items")
                 } footer: {
                     if content.isEmpty {
                         Text("Type things one by one and press Return. You can add places inside too.")

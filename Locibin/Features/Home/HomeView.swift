@@ -4,19 +4,26 @@ import SwiftUI
 struct HomeView: View {
     @Bindable var viewModel: HomeViewModel
     @Bindable var search: SearchViewModel
+    @ScaledMetric(relativeTo: .title2) private var scaledScanButtonSize: CGFloat = 60
+
+    /// 60 pt at the default size, growing with Dynamic Type but capped so it doesn't cover the list.
+    private var scanButtonSize: CGFloat { min(scaledScanButtonSize, 96) }
 
     var body: some View {
         Group {
             if search.isActive {
                 SearchResultsView(viewModel: search)
             } else if viewModel.isEmpty {
-                ContentUnavailableView {
-                    Label("No Places Yet", systemImage: "shippingbox")
-                } description: {
-                    Text("Create your first place — for example, “Garage” or “Pantry” — then add shelves, boxes and things inside.")
-                } actions: {
-                    Button("Create Place", action: viewModel.addLocationTapped)
-                        .primaryButtonStyle()
+                ScrollableFullScreen {
+                    ContentUnavailableView {
+                        Label("No Places Yet", systemImage: "shippingbox")
+                    } description: {
+                        Text("Create your first place — for example, “Garage” or “Pantry” — then add shelves, boxes and things inside.")
+                            .emptyStateDescriptionStyle()
+                    } actions: {
+                        Button("Create Place", action: viewModel.addLocationTapped)
+                            .primaryButtonStyle()
+                    }
                 }
             } else {
                 List {
@@ -52,8 +59,10 @@ struct HomeView: View {
                 Button("Scan QR Code", systemImage: "qrcode.viewfinder", action: viewModel.scanTapped)
                     .labelStyle(.iconOnly)
                     .font(.title2.weight(.semibold))
+                    // The icon grows with Dynamic Type only up to a size that still fits the circle.
+                    .dynamicTypeSize(...DynamicTypeSize.accessibility2)
                     .foregroundStyle(Color.onAccent)
-                    .frame(width: 60, height: 60)
+                    .frame(width: scanButtonSize, height: scanButtonSize)
                     .background(Color.accentColor, in: .circle)
                     .shadow(color: .black.opacity(0.2), radius: 6, y: 2)
                     .padding(.trailing, 20)

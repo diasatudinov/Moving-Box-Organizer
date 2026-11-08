@@ -9,8 +9,7 @@ struct CodeProblemView: View {
     let onClose: () -> Void
 
     var body: some View {
-        VStack(spacing: 24) {
-            Spacer()
+        ScrollableFullScreen {
             ContentUnavailableView {
                 switch problem {
                 case .locationNotFound:
@@ -22,11 +21,15 @@ struct CodeProblemView: View {
                 switch problem {
                 case .locationNotFound:
                     Text("This place isn't in the app. It may have been deleted, or its data is on another iPhone.")
+                    .emptyStateDescriptionStyle()
                 case .damagedCode:
                     Text("This QR code looks damaged or was made by a newer version of the app.")
+                    .emptyStateDescriptionStyle()
                 }
             }
-            Spacer()
+        }
+        // Buttons stay pinned at the bottom; the text above scrolls at large text sizes.
+        .safeAreaInset(edge: .bottom) {
             VStack(spacing: 10) {
                 if let onScanAgain {
                     Button(action: onScanAgain) {

@@ -13,6 +13,7 @@ struct LocationPickerView: View {
                 }
             } header: {
                 Text(viewModel.prompt)
+                    .foregroundStyle(Color.secondaryText)
                     .textCase(nil)
             }
         }
@@ -64,18 +65,19 @@ private struct PickerRow: View {
                     if let subtitle = row.subtitle {
                         Text(subtitle)
                             .font(.footnote)
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(Color.secondaryText)
                     }
                 }
                 Spacer(minLength: 8)
                 if row.isCurrent {
                     Text("Current")
                         .font(.footnote)
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(Color.secondaryText)
                 } else if isSelected {
                     Image(systemName: "checkmark")
                         .fontWeight(.semibold)
                         .foregroundStyle(.tint)
+                        .accessibilityHidden(true)
                 }
             }
             .padding(.leading, CGFloat(row.depth) * indent)

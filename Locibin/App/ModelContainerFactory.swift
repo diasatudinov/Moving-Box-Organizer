@@ -20,6 +20,13 @@ enum ModelContainerFactory {
         return try ModelContainer(for: schema, migrationPlan: LocibinMigrationPlan.self, configurations: configuration)
     }
 
+    /// Launch argument used by UI tests: start with an empty in-memory store, never touch real data.
+    static let uiTestingArgument = "--ui-testing"
+
+    static func makeForLaunch(arguments: [String]) throws -> ModelContainer {
+        arguments.contains(uiTestingArgument) ? try makeInMemory() : try makePersistent()
+    }
+
     /// In-memory container for tests and SwiftUI previews.
     static func makeInMemory() throws -> ModelContainer {
         let configuration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true, cloudKitDatabase: .none)

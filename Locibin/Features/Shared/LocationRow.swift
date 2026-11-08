@@ -12,7 +12,7 @@ struct LocationRow: View {
                     .font(.body)
                 Text(row.subtitle)
                     .font(.footnote)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(Color.secondaryText)
             }
         }
         .padding(.vertical, 2)
@@ -33,7 +33,7 @@ struct ItemRow: View {
                 if let note = row.note {
                     Text(note)
                         .font(.footnote)
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(Color.secondaryText)
                         .lineLimit(2)
                 }
             }
@@ -41,7 +41,8 @@ struct ItemRow: View {
             if let quantity = row.quantityText {
                 Text(quantity)
                     .font(.subheadline)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(Color.secondaryText)
+                    .accessibilityLabel(row.quantityAccessibilityText ?? quantity)
             }
         }
         .contentShape(.rect)

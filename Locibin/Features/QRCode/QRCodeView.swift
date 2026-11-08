@@ -16,7 +16,7 @@ struct QRCodeView: View {
                             if let pathText {
                                 Text(pathText)
                                     .font(.subheadline)
-                                    .foregroundStyle(.secondary)
+                                    .foregroundStyle(Color.secondaryText)
                                     .multilineTextAlignment(.center)
                             }
                         }
@@ -42,7 +42,7 @@ struct QRCodeView: View {
 
                         Text("This code won't change if you rename the place or change what's inside.")
                             .font(.footnote)
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(Color.secondaryText)
                             .multilineTextAlignment(.center)
                     }
                     .padding(.horizontal, 24)

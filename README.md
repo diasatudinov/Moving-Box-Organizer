@@ -22,6 +22,14 @@ xcodebuild -project Locibin.xcodeproj -scheme Locibin \
 
 Run the same tests on an iOS 26+ simulator as well — both looks (iOS 18 and Liquid Glass) are supported.
 
+The scheme runs two test targets:
+
+- `LocibinTests` — unit tests (Swift Testing) for services and ViewModels, on in-memory stores.
+- `LocibinUITests` — end-to-end flows and Apple's accessibility audit (`performAccessibilityAudit`).
+  The app is launched with `--ui-testing` (empty in-memory store, real data is never touched) and in English.
+
+Tip: `xcodebuild test` clones and may shut down the simulator it runs on — keep a different simulator for manual checks.
+
 Signing: set your team in *Signing & Capabilities* before running on a device. Simulator builds need no team.
 
 ## Project layout
@@ -38,6 +46,8 @@ Locibin/
   DesignSystem/   shared buttons, tiles, empty states, color tokens
   Resources/      Assets.xcassets, Localizable.xcstrings
 LocibinTests/     Swift Testing unit tests
+LocibinUITests/   XCTest UI tests and accessibility audit
+Config/           partial Info.plist (URL scheme, backup file type)
 ```
 
 Folders other than `App/` and `Resources/` are created together with their first file.
@@ -49,6 +59,8 @@ Folders other than `App/` and `Resources/` are created together with their first
 - **Services** — rules shared by several screens (moving, deleting, QR, PDF, backup). They know nothing about UI.
 - **AppRouter** — navigation stack, sheets and deep links.
 - All user-facing strings live in `Localizable.xcstrings` (English source, Russian translation).
+- Secondary text uses `Color.secondaryText` and list headers use `SectionHeader` (the system secondary style fell just under the 4.5:1 contrast target).
+- Empty and error states are wrapped in `ScrollableFullScreen` so buttons stay reachable at the largest text sizes.
 
 ## Fixed identifiers — do not change after release
 

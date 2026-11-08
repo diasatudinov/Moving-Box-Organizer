@@ -5,14 +5,16 @@ struct ItemFormView: View {
 
     var body: some View {
         Form {
-            Section("Name") {
+            Section {
                 TextField("Name", text: $viewModel.draft.name)
+            } header: {
+                SectionHeader("Name")
             }
 
-            Section("Quantity") {
+            Section {
                 HStack {
                     Text(viewModel.quantityText)
-                        .foregroundStyle(viewModel.draft.quantity == nil ? .secondary : .primary)
+                        .foregroundStyle(viewModel.draft.quantity == nil ? Color.secondaryText : Color.primary)
                     Spacer()
                     Button("Decrease", systemImage: "minus", action: viewModel.decreaseQuantity)
                         .disabled(!viewModel.canDecreaseQuantity)
@@ -21,14 +23,18 @@ struct ItemFormView: View {
                 }
                 .labelStyle(.iconOnly)
                 .buttonStyle(.bordered)
+            } header: {
+                SectionHeader("Quantity")
             }
 
-            Section("Note") {
+            Section {
                 TextField("Note", text: $viewModel.draft.note, axis: .vertical)
                     .lineLimit(3...6)
+            } header: {
+                SectionHeader("Note")
             }
 
-            Section("Stored In") {
+            Section {
                 Button(action: viewModel.chooseLocationTapped) {
                     HStack {
                         Text(viewModel.locationPathText)
@@ -36,13 +42,15 @@ struct ItemFormView: View {
                             .multilineTextAlignment(.leading)
                         Spacer(minLength: 8)
                         Text("Move")
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(Color.secondaryText)
                         Image(systemName: "chevron.forward")
                             .font(.footnote.weight(.semibold))
                             .foregroundStyle(.tertiary)
                             .accessibilityHidden(true)
                     }
                 }
+            } header: {
+                SectionHeader("Stored In")
             }
 
             Section {

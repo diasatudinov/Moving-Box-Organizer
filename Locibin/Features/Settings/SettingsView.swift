@@ -21,13 +21,15 @@ struct SettingsView: View {
                     }
                 }
             } header: {
-                Text("Backup")
+                SectionHeader("Backup")
             } footer: {
                 Text("Your data is stored only on this iPhone. Save a copy to Files before changing phones. Importing replaces all current data.")
             }
 
-            Section("About") {
+            Section {
                 LabeledContent("Version", value: viewModel.versionText)
+            } header: {
+                SectionHeader("About")
             }
         }
         .navigationTitle("Settings")

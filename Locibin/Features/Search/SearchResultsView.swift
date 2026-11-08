@@ -11,7 +11,7 @@ struct SearchResultsView: View {
             } else {
                 List {
                     if !viewModel.items.isEmpty {
-                        Section("Items") {
+                        Section {
                             ForEach(viewModel.items) { item in
                                 Button {
                                     viewModel.select(item)
@@ -21,7 +21,7 @@ struct SearchResultsView: View {
                                             .foregroundStyle(.primary)
                                         Text(item.pathText)
                                             .font(.footnote)
-                                            .foregroundStyle(.secondary)
+                                            .foregroundStyle(Color.secondaryText)
                                     }
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .contentShape(.rect)
@@ -29,10 +29,12 @@ struct SearchResultsView: View {
                                 .buttonStyle(.plain)
                                 .accessibilityElement(children: .combine)
                             }
+                        } header: {
+                            SectionHeader("Items")
                         }
                     }
                     if !viewModel.locations.isEmpty {
-                        Section("Places") {
+                        Section {
                             ForEach(viewModel.locations) { location in
                                 Button {
                                     viewModel.select(location)
@@ -43,6 +45,8 @@ struct SearchResultsView: View {
                                 }
                                 .buttonStyle(.plain)
                             }
+                        } header: {
+                            SectionHeader("Places")
                         }
                     }
                 }

@@ -13,17 +13,19 @@ struct PrintLabelsView: View {
                 }
                 .pickerStyle(.segmented)
             } header: {
-                Text("Label Size")
+                SectionHeader("Label Size")
             } footer: {
                 Text("Large: 90 × 60 mm, 8 per sheet. Small: 50 × 50 mm, 15 per sheet.")
             }
 
-            Section("Paper") {
+            Section {
                 Picker("Paper", selection: $viewModel.paper) {
                     Text(verbatim: "A4").tag(PaperSize.a4)
                     Text(verbatim: "Letter").tag(PaperSize.letter)
                 }
                 .pickerStyle(.segmented)
+            } header: {
+                SectionHeader("Paper")
             }
 
             Section {
@@ -35,13 +37,14 @@ struct PrintLabelsView: View {
                             Image(systemName: viewModel.isSelected(row) ? "checkmark.circle.fill" : "circle")
                                 .font(.title3)
                                 .foregroundStyle(viewModel.isSelected(row) ? AnyShapeStyle(.tint) : AnyShapeStyle(.secondary))
+                                .accessibilityHidden(true)
                             LocationKindIcon(kind: row.kind)
                             VStack(alignment: .leading, spacing: 2) {
                                 Text(row.title).foregroundStyle(.primary)
                                 if let subtitle = row.subtitle {
                                     Text(subtitle)
                                         .font(.footnote)
-                                        .foregroundStyle(.secondary)
+                                        .foregroundStyle(Color.secondaryText)
                                 }
                             }
                         }
@@ -52,7 +55,7 @@ struct PrintLabelsView: View {
                 }
             } header: {
                 HStack {
-                    Text("Places")
+                    SectionHeader("Places")
                     Spacer()
                     Button(viewModel.allSelected ? "Deselect All" : "Select All", action: viewModel.toggleAll)
                         .font(.footnote.weight(.semibold))
@@ -64,7 +67,7 @@ struct PrintLabelsView: View {
             VStack(spacing: 8) {
                 Text(viewModel.summary)
                     .font(.footnote)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(Color.secondaryText)
                 Button(action: viewModel.previewTapped) {
                     Text("Preview").frame(maxWidth: .infinity)
                 }
